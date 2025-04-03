@@ -194,7 +194,6 @@ header.scrolled {
     rgba(225, 235, 250, 0.99) 100%);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
-  color: var(--dark-bg);
 }
 
 .btn {
@@ -1379,15 +1378,30 @@ footer {
   width: 30px;
   height: 21px;
   cursor: pointer;
+  z-index: 1200; /* Ensure it appears above everything */
+  position: relative;
 }
 
 .menu-toggle span {
   display: block;
   height: 3px;
   width: 100%;
-  background-color: var(--primary-color);
+  background-color: white; /* Changed from var(--primary-color) to white for better visibility */
   border-radius: 3px;
   transition: all 0.3s;
+}
+
+/* Animation for menu toggle when active */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 /* Responsive styles */
@@ -1404,6 +1418,13 @@ footer {
   
   .platform-overview-title {
     font-size: 2.5rem;
+  }
+  
+  /* Adjust floating element size for tablets */
+  .floating-element {
+    max-width: 40%;
+    max-height: 40%;
+    right: 10%;
   }
 }
 
@@ -1442,6 +1463,7 @@ footer {
     align-items: center;
     box-shadow: var(--shadow);
     border: 1px solid var(--border-color);
+    z-index: 1100; /* Ensure it appears above other content */
   }
   
   .nav-links.active {
@@ -1464,6 +1486,45 @@ footer {
     flex-direction: column;
     gap: 20px;
   }
+  
+  /* Hide floating element on mobile devices */
+  .floating-element {
+    display: none;
+  }
+  
+  /* Adjust hero padding for better mobile spacing */
+  .hero-content {
+    padding-left: 0;
+    margin-right: 0;
+    text-align: center;
+  }
+  
+  /* Center hero CTA on mobile */
+  .hero-cta {
+    justify-content: center;
+  }
+  
+  /* Adjust section padding */
+  .products, .features, .platform-overview, .how-it-works, .cta, .testimonials, .faq {
+    padding: 60px 0;
+  }
+  
+  /* Adjust grid spacing */
+  .products-grid, .features-grid {
+    gap: 20px;
+  }
+  
+  /* Improve card spacing */
+  .product-card, .feature-card {
+    padding: 20px;
+  }
+  
+  /* Center client logos on mobile */
+  .client-logos {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -1478,6 +1539,45 @@ footer {
   .products-grid, 
   .features-grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Replace hero video with gradient background on small devices */
+  video.hero-bg {
+    display: none;
+  }
+  
+  /* Enhanced gradient background for mobile when video is hidden */
+  .hero {
+    background: linear-gradient(135deg, 
+      rgba(0, 0, 0, 1) 0%, 
+      rgba(15, 28, 53, 0.95) 50%, 
+      rgba(0, 0, 0, 1) 100%);
+  }
+  
+  /* Further reduce padding */
+  .hero-content {
+    margin-top: 20px;
+  }
+  
+  /* Adjust logo size */
+  .logo-img {
+    height: 60px;
+  }
+  
+  /* Make buttons full width on very small screens */
+  .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Adjust section headers */
+  .section-title, .products-title {
+    font-size: 1.8rem;
+  }
+  
+  .section-subtitle, .products-subtitle {
+    font-size: 1rem;
   }
 }
 
