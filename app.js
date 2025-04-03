@@ -4,9 +4,9 @@ const path = require('path');
 const http = require('http');
 
 const app = express();
-const initialPort = process.env.PORT || 3000;
+const initialPort = process.env.PORT || 3050;
 let currentPort = initialPort;
-const maxPortAttempts = 10; // Try up to 10 ports
+const maxPortAttempts = 20; // Try up to 20 ports
 let portAttempts = 0;
 
 // Set view engine
@@ -25,6 +25,14 @@ app.get('/', (req, res) => {
 
 app.get('/documentation', (req, res) => {
   res.render('documentation');
+});
+
+app.get('/privacy-policy', (req, res) => {
+  res.render('privacy-policy');
+});
+
+app.get('/terms-of-service', (req, res) => {
+  res.render('terms-of-service');
 });
 
 // Handle waitlist form submission
