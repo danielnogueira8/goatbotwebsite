@@ -171,9 +171,9 @@ header.scrolled {
 /* Update navbar button for dark theme */
 .nav-links a.btn {
   background: linear-gradient(135deg, 
-    rgba(160, 170, 190, 0.95) 0%, 
-    rgba(180, 190, 210, 0.98) 50%, 
-    rgba(160, 170, 190, 0.95) 100%);
+    rgba(210, 220, 235, 0.98) 0%, 
+    rgba(225, 230, 245, 0.99) 50%, 
+    rgba(210, 220, 235, 0.98) 100%);
   color: var(--dark-bg);
   font-weight: 700;
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
@@ -187,9 +187,9 @@ header.scrolled {
 
 .nav-links a.btn:hover {
   background: linear-gradient(135deg, 
-    rgba(190, 200, 220, 0.98) 0%, 
-    rgba(210, 220, 240, 1) 50%, 
-    rgba(190, 200, 220, 0.98) 100%);
+    rgba(225, 235, 250, 0.99) 0%, 
+    rgba(235, 245, 255, 1) 50%, 
+    rgba(225, 235, 250, 0.99) 100%);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
   color: var(--dark-bg);
@@ -290,25 +290,25 @@ video.hero-bg {
 /* Combined animation for smooth floating effect with rotation both ways */
 @keyframes floatMove {
   0% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px) rotate(-8deg);
   }
   15% {
-    transform: translateY(10px) rotate(0deg); /* Slight downward movement */
+    transform: translateY(10px) rotate(0deg); /* Passing through center while moving down */
   }
-  35% {
-    transform: translateY(-15px) rotate(-7deg); /* Left rotation with upward movement */
+  30% {
+    transform: translateY(0px) rotate(8deg); /* Right rotation */
   }
   50% {
-    transform: translateY(-40px) rotate(0deg); /* Peak height */
+    transform: translateY(-40px) rotate(0deg); /* Passing through center at peak height */
   }
-  65% {
-    transform: translateY(-15px) rotate(7deg); /* Right rotation with upward movement */
+  70% {
+    transform: translateY(0px) rotate(-8deg); /* Left rotation */
   }
   85% {
-    transform: translateY(10px) rotate(0deg); /* Slight downward movement again */
+    transform: translateY(10px) rotate(0deg); /* Passing through center while moving down */
   }
   100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px) rotate(-8deg); /* Back to starting position */
   }
 }
 
@@ -318,7 +318,12 @@ video.hero-bg {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(7, 14, 26, 0.3) 50%, rgba(0, 0, 0, 0.4) 100%);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(7, 14, 26, 0.3) 50%, rgba(0, 0, 0, 0.4) 100%),
+              linear-gradient(to bottom, 
+                rgba(0, 0, 0, 0.2) 0%, 
+                rgba(0, 0, 0, 0.2) 70%, 
+                rgba(0, 0, 0, 0.8) 90%, 
+                rgba(0, 0, 0, 1) 100%);
   z-index: 2;
 }
 
@@ -394,9 +399,9 @@ video.hero-bg {
 /* Update buttons with silver gradient */
 .hero-cta .btn {
   background: linear-gradient(135deg, 
-    rgba(160, 170, 190, 0.95) 0%, 
-    rgba(180, 190, 210, 0.98) 50%, 
-    rgba(160, 170, 190, 0.95) 100%);
+    rgba(210, 220, 235, 0.98) 0%, 
+    rgba(225, 230, 245, 0.99) 50%, 
+    rgba(210, 220, 235, 0.98) 100%);
   color: var(--dark-bg);
   font-weight: 700;
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
@@ -407,16 +412,17 @@ video.hero-bg {
 
 .hero-cta .btn:hover {
   background: linear-gradient(135deg, 
-    rgba(190, 200, 220, 0.98) 0%, 
-    rgba(210, 220, 240, 1) 50%, 
-    rgba(190, 200, 220, 0.98) 100%);
+    rgba(225, 235, 250, 0.99) 0%, 
+    rgba(235, 245, 255, 1) 50%, 
+    rgba(225, 235, 250, 0.99) 100%);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
 }
 
 /* Products section (styled like the HAQQ explore products section) */
 .products {
-  padding: 120px 0;
+  padding: 100px 0 120px;
+  margin-top: -1px; /* Ensures no gap between sections */
   background-color: var(--bg-color);
   text-align: center;
 }
@@ -1453,9 +1459,9 @@ footer {
 /* Style both hero CTA buttons and navbar Join Waitlist button with silver gradient */
 .nav-links a.btn {
   background: linear-gradient(135deg, 
-    rgba(160, 170, 190, 0.95) 0%, 
-    rgba(180, 190, 210, 0.98) 50%, 
-    rgba(160, 170, 190, 0.95) 100%);
+    rgba(210, 220, 235, 0.98) 0%, 
+    rgba(225, 230, 245, 0.99) 50%, 
+    rgba(210, 220, 235, 0.98) 100%);
   color: var(--dark-bg);
   font-weight: 700;
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
@@ -1466,9 +1472,9 @@ footer {
 
 .nav-links a.btn:hover {
   background: linear-gradient(135deg, 
-    rgba(190, 200, 220, 0.98) 0%, 
-    rgba(210, 220, 240, 1) 50%, 
-    rgba(190, 200, 220, 0.98) 100%);
+    rgba(225, 235, 250, 0.99) 0%, 
+    rgba(235, 245, 255, 1) 50%, 
+    rgba(225, 235, 250, 0.99) 100%);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
   color: var(--dark-bg);
