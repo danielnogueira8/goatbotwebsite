@@ -35,6 +35,10 @@ app.get('/terms-of-service', (req, res) => {
   res.render('terms-of-service');
 });
 
+app.get('/cookies-policy', (req, res) => {
+  res.render('cookies-policy');
+});
+
 // Handle waitlist form submission
 app.post('/join-waitlist', (req, res) => {
   const { email } = req.body;
