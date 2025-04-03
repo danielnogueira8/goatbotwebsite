@@ -1,0 +1,5 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="40" rx="8" fill="none"/>
+  <path d="M20 10H40C45.523 10 50 14.477 50 20V20C50 25.523 45.523 30 40 30H20C14.477 30 10 25.523 10 20V20C10 14.477 14.477 10 20 10Z" fill="#CBD5E1"/>
+  <text x="30" y="24" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#475569">ALPHA</text>
+</svg> 

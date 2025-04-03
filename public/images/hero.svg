@@ -1,0 +1,81 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient dark background -->
+  <rect width="1920" height="1080" fill="url(#bgGradient)"/>
+  
+  <!-- Grid pattern to simulate a tech background -->
+  <path d="M0 0 L1920 0 L1920 1080 L0 1080 Z" stroke="rgba(255,255,255,0.05)" stroke-width="1" fill="none"/>
+  <path d="M0 270 L1920 270" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+  <path d="M0 540 L1920 540" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+  <path d="M0 810 L1920 810" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+  
+  <path d="M480 0 L480 1080" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+  <path d="M960 0 L960 1080" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+  <path d="M1440 0 L1440 1080" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+  
+  <!-- Abstract shapes representing trading and crypto concepts -->
+  <circle cx="1600" cy="300" r="200" fill="url(#blueGlow)" opacity="0.2"/>
+  <circle cx="1700" cy="700" r="150" fill="url(#greenGlow)" opacity="0.15"/>
+  <circle cx="1300" cy="800" r="180" fill="url(#purpleGlow)" opacity="0.1"/>
+  
+  <!-- Lines representing charts and data -->
+  <path d="M1000 500 L1100 450 L1200 480 L1300 400 L1400 420 L1500 350 L1600 380 L1700 320" 
+        stroke="rgba(16, 185, 129, 0.6)" stroke-width="3" fill="none"/>
+  
+  <path d="M1000 600 L1100 650 L1200 620 L1300 680 L1400 650 L1500 700 L1600 670 L1700 720" 
+        stroke="rgba(37, 99, 235, 0.6)" stroke-width="3" fill="none"/>
+  
+  <!-- Trading platform interface mockup -->
+  <rect x="1050" y="300" width="600" height="400" rx="10" fill="rgba(17, 24, 39, 0.7)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <rect x="1070" y="320" width="560" height="60" rx="5" fill="rgba(31, 41, 55, 0.8)"/>
+  
+  <!-- Chart in interface -->
+  <rect x="1070" y="400" width="350" height="280" rx="5" fill="rgba(31, 41, 55, 0.5)"/>
+  <path d="M1080 550 L1120 520 L1160 560 L1200 530 L1240 570 L1280 520 L1320 540 L1360 510 L1400 580" 
+        stroke="rgba(16, 185, 129, 0.8)" stroke-width="2" fill="none"/>
+  
+  <!-- Orders panel -->
+  <rect x="1440" y="400" width="170" height="280" rx="5" fill="rgba(31, 41, 55, 0.5)"/>
+  <rect x="1450" y="420" width="150" height="30" rx="5" fill="rgba(16, 185, 129, 0.2)"/>
+  <rect x="1450" y="460" width="150" height="30" rx="5" fill="rgba(220, 38, 38, 0.2)"/>
+  <rect x="1450" y="500" width="150" height="30" rx="5" fill="rgba(16, 185, 129, 0.2)"/>
+  <rect x="1450" y="540" width="150" height="30" rx="5" fill="rgba(220, 38, 38, 0.2)"/>
+  <rect x="1450" y="580" width="150" height="30" rx="5" fill="rgba(16, 185, 129, 0.2)"/>
+  <rect x="1450" y="620" width="150" height="30" rx="5" fill="rgba(220, 38, 38, 0.2)"/>
+  
+  <!-- Cryptocurrency icons as abstract shapes -->
+  <circle cx="250" cy="300" r="80" fill="url(#bitcoinGold)" opacity="0.7"/>
+  <polygon points="450,220 530,300 450,380 370,300" fill="url(#ethereumPurple)" opacity="0.6"/>
+  
+  <!-- Gradients definitions -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    
+    <radialGradient id="blueGlow" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.5">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1E40AF"/>
+    </radialGradient>
+    
+    <radialGradient id="greenGlow" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.5">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#065F46"/>
+    </radialGradient>
+    
+    <radialGradient id="purpleGlow" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.5">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#6D28D9"/>
+    </radialGradient>
+    
+    <radialGradient id="bitcoinGold" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.5">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </radialGradient>
+    
+    <radialGradient id="ethereumPurple" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.5">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#4C1D95"/>
+    </radialGradient>
+  </defs>
+</svg> 
