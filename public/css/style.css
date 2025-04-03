@@ -1109,7 +1109,6 @@ video.hero-bg {
 }
 
 .accordion-item.active {
-  background-color: rgba(150, 150, 160, 0.1);
   border-color: rgba(180, 180, 190, 0.2);
   box-shadow: 0 6px 15px rgba(255, 255, 255, 0.08);
 }
@@ -1124,6 +1123,9 @@ video.hero-bg {
   font-size: 1.125rem;
   color: var(--text-color);
   transition: background-color 0.3s;
+  background-color: var(--tertiary-bg);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .accordion-header:hover {
@@ -1144,13 +1146,14 @@ video.hero-bg {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
+  background-color: rgba(150, 150, 160, 0.1);
 }
 
 .accordion-body-content {
-  padding: 0 24px 24px;
+  padding: 20px 24px 24px;
   color: var(--text-light);
   text-align: left;
-  margin-top: 5px;
+  margin-top: 0;
 }
 
 .accordion-item.active .accordion-body {
