@@ -1564,8 +1564,16 @@ footer {
     height: 60px;
   }
   
-  /* Make buttons full width on very small screens */
-  .btn {
+  /* Make the hero CTA button match title width instead of full width */
+  .hero-cta .btn {
+    display: inline-block;
+    width: auto;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  
+  /* Keep other buttons full width */
+  .btn:not(.hero-cta .btn) {
     display: block;
     width: 100%;
     text-align: center;
