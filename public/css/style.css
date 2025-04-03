@@ -1105,6 +1105,13 @@ video.hero-bg {
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
   background-color: var(--tertiary-bg);
   border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.accordion-item.active {
+  background-color: rgba(150, 150, 160, 0.1);
+  border-color: rgba(180, 180, 190, 0.2);
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.08);
 }
 
 .accordion-header {
@@ -1140,14 +1147,14 @@ video.hero-bg {
 }
 
 .accordion-body-content {
-  padding: 0 0 24px;
+  padding: 0 24px 24px;
   color: var(--text-light);
   text-align: left;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 .accordion-item.active .accordion-body {
-  max-height: 200px;
+  max-height: 300px;
 }
 
 /* CTA section */
