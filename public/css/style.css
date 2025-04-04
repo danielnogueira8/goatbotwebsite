@@ -279,37 +279,31 @@ video.hero-bg {
 .floating-element {
   position: absolute;
   z-index: 1;
-  max-width: 48%;  /* Another 10% smaller than 54% */
-  max-height: 48%; /* Another 10% smaller than 54% */
-  right: 15%;      /* Moved to the left (increased from 10% to 15%) */
-  top: 32%;        /* Moved up (reduced from 40% to 32%) */
+  max-width: 48%;
+  max-height: 48%;
+  right: 15%;
+  top: 32%;
   transform-origin: center center;
-  animation: floatMove 15s ease-in-out infinite; /* Changed from cubic-bezier to ease-in-out */
+  animation: floatMove 15s ease-in-out infinite;
   filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.25));
 }
 
-/* Combined animation for smooth floating effect with rotation both ways */
+/* Smoother floating effect with continuous rotation */
 @keyframes floatMove {
   0% {
-    transform: translateY(0px) rotate(-8deg);
+    transform: translateY(0px) rotate(-4deg);
   }
-  15% {
-    transform: translateY(10px) rotate(0deg); /* Passing through center while moving down */
-  }
-  30% {
-    transform: translateY(0px) rotate(8deg); /* Right rotation */
+  25% {
+    transform: translateY(-20px) rotate(2deg);
   }
   50% {
-    transform: translateY(-40px) rotate(0deg); /* Passing through center at peak height */
+    transform: translateY(-40px) rotate(-2deg);
   }
-  70% {
-    transform: translateY(0px) rotate(-8deg); /* Left rotation */
-  }
-  85% {
-    transform: translateY(10px) rotate(0deg); /* Passing through center while moving down */
+  75% {
+    transform: translateY(-20px) rotate(4deg);
   }
   100% {
-    transform: translateY(0px) rotate(-8deg); /* Back to starting position */
+    transform: translateY(0px) rotate(-4deg);
   }
 }
 
