@@ -75,11 +75,11 @@ header.transparent {
 
 header.scrolled {
   background: linear-gradient(135deg, 
-    rgba(15, 28, 53, 0.95) 0%, 
-    rgba(24, 50, 88, 0.9) 40%, 
-    rgba(30, 91, 215, 0.85) 60%, 
-    rgba(15, 28, 53, 0.95) 100%);
-  backdrop-filter: blur(10px);
+    rgba(15, 28, 53, 0.76) 0%, /* Reduced from 0.95 */
+    rgba(24, 50, 88, 0.72) 40%, /* Reduced from 0.9 */
+    rgba(30, 91, 215, 0.68) 60%, /* Reduced from 0.85 */
+    rgba(15, 28, 53, 0.76) 100%); /* Reduced from 0.95 */
+  backdrop-filter: blur(8px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   padding: 15px 0;
 }
