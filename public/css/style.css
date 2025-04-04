@@ -193,7 +193,7 @@ header.scrolled {
     rgba(235, 245, 255, 1) 50%, 
     rgba(225, 235, 250, 0.99) 100%);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  transform: scale(1.05);
 }
 
 .btn {
@@ -414,7 +414,7 @@ video.hero-bg {
     rgba(235, 245, 255, 1) 50%, 
     rgba(225, 235, 250, 0.99) 100%);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  transform: scale(1.05);
 }
 
 /* Products section (styled like the HAQQ explore products section) */
@@ -1252,7 +1252,7 @@ video.hero-bg {
     rgba(235, 245, 255, 1) 50%, 
     rgba(225, 235, 250, 0.99) 100%) !important;
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  transform: scale(1.05);
 }
 
 /* One more specific selector to ensure our styling takes precedence */
@@ -1633,7 +1633,7 @@ footer {
     rgba(235, 245, 255, 1) 50%, 
     rgba(225, 235, 250, 0.99) 100%);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  transform: scale(1.05);
 }
 
 /* Add styling for the CTA section button to match other silver buttons */
@@ -1659,7 +1659,17 @@ footer {
     rgba(235, 245, 255, 1) 50%, 
     rgba(225, 235, 250, 0.99) 100%);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  transform: scale(1.05);
+}
+
+/* Update hero CTA button hover effect as well for consistency */
+.hero-cta .btn:hover {
+  background: linear-gradient(135deg, 
+    rgba(225, 235, 250, 0.99) 0%, 
+    rgba(235, 245, 255, 1) 50%, 
+    rgba(225, 235, 250, 0.99) 100%);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
 }
 
 /* Restore product card hover effect */
