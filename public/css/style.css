@@ -284,7 +284,7 @@ video.hero-bg {
   right: 15%;      /* Moved to the left (increased from 10% to 15%) */
   top: 32%;        /* Moved up (reduced from 40% to 32%) */
   transform-origin: center center;
-  animation: floatMove 15s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite; /* Increased duration from 12s to 15s */
+  animation: floatMove 15s ease-in-out infinite; /* Changed from cubic-bezier to ease-in-out */
   filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.25));
 }
 
@@ -1640,7 +1640,6 @@ footer {
     rgba(225, 235, 250, 0.99) 100%);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
-  color: var(--dark-bg);
 }
 
 /* Add styling for the CTA section button to match other silver buttons */
@@ -1655,6 +1654,9 @@ footer {
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.1);
+  font-size: 19.2px;
+  padding: 14.4px 28.8px;
+  border-radius: 14.4px;
 }
 
 .cta .btn:hover {
@@ -1664,7 +1666,6 @@ footer {
     rgba(225, 235, 250, 0.99) 100%);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
-  color: var(--dark-bg);
 }
 
 /* Restore product card hover effect */
