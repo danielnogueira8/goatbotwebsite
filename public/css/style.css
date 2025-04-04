@@ -146,10 +146,12 @@ header.scrolled {
   letter-spacing: 0.01em;
   position: relative;
   padding: 5px 0;
+  display: inline-block;
 }
 
 .nav-links a:hover {
-  color: var(--primary-color);
+  color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.05);
 }
 
 .nav-links a::after {
@@ -159,7 +161,7 @@ header.scrolled {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--primary-color);
+  background: rgba(255, 255, 255, 0.9);
   transition: width 0.3s ease;
   opacity: 0;
 }
