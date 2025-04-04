@@ -476,7 +476,7 @@ video.hero-bg {
   border-radius: 12px;
   padding: 40px 30px;
   box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -486,31 +486,10 @@ video.hero-bg {
   overflow: hidden;
 }
 
-.product-card:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(145deg,
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(255, 255, 255, 0.05) 50%,
-    rgba(255, 255, 255, 0.03) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
-  pointer-events: none;
-}
-
 .product-card:hover {
-  transform: translateY(-5px);
+  transform: none;
   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.25);
-}
-
-.product-card:hover:after {
-  opacity: 1;
 }
 
 .product-card .card-icon {
@@ -625,7 +604,7 @@ video.hero-bg {
 }
 
 .profile-container:hover {
-  transform: translateY(-5px);
+  transform: none;
 }
 
 .profile-link {
@@ -733,7 +712,7 @@ video.hero-bg {
   border-radius: 12px;
   padding: 40px 30px;
   box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -743,31 +722,10 @@ video.hero-bg {
   overflow: hidden;
 }
 
-.feature-card:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(145deg,
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(255, 255, 255, 0.05) 50%,
-    rgba(255, 255, 255, 0.03) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
-  pointer-events: none;
-}
-
 .feature-card:hover {
-  transform: translateY(-5px);
+  transform: none;
   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.25);
-}
-
-.feature-card:hover:after {
-  opacity: 1;
 }
 
 .feature-icon {
@@ -924,7 +882,7 @@ video.hero-bg {
 }
 
 .step:hover {
-  transform: translateY(-5px);
+  transform: none;
   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.25);
 }
@@ -1008,7 +966,7 @@ video.hero-bg {
 }
 
 .use-case:hover {
-  transform: translateY(-5px);
+  transform: none;
   box-shadow: 0 8px 20px rgba(255, 255, 255, 0.08);
 }
 
@@ -1346,7 +1304,7 @@ footer {
 
 .social-links a:hover {
   color: white;
-  transform: translateY(-3px);
+  transform: none;
 }
 
 .footer-bottom {
@@ -1676,8 +1634,9 @@ footer {
 
 /* Restore product card hover effect */
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.08);
+  transform: none;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 /* Contents card styling */
@@ -1714,7 +1673,7 @@ footer {
 }
 
 .contents-card:hover {
-  transform: translateY(-5px);
+  transform: none;
   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.25);
 }
@@ -1744,7 +1703,7 @@ footer {
 
 .contents-card a:hover {
   color: var(--primary-color);
-  transform: translateX(5px);
+  transform: none;
 }
 
 .contents-card a.active {
