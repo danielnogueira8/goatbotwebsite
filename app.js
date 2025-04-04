@@ -27,6 +27,10 @@ app.get('/documentation', (req, res) => {
   res.render('documentation');
 });
 
+app.get('/about', (req, res) => {
+  res.render('about');
+});
+
 app.get('/privacy-policy', (req, res) => {
   res.render('privacy-policy');
 });
