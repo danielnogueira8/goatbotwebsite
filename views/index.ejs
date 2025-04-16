@@ -10,10 +10,127 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="/images/logo.png" type="image/png">
+    <link rel="icon" href="/images/favicon.png" type="image/png">
     <link rel="preload" href="/images/floating.png" as="image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Animation Styles */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero-title, .hero-subtitle, .hero-cta {
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        
+        .hero-title {
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+        
+        .hero-subtitle {
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .hero-cta {
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .scale-in {
+            transition: transform 0.4s ease;
+        }
+        
+        .scale-in:hover {
+            transform: scale(1.05);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .slide-in-left.active, .slide-in-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .bounce-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .bounce-in.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        
+        .stagger-item.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Ensure how-it-works section has correct animation settings */
+        .how-it-works .step.stagger-item {
+            opacity: 0 !important;
+            transform: translateY(30px) scale(0.95) !important;
+            transition: opacity 0.5s cubic-bezier(0.215, 0.61, 0.355, 1), 
+                        transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .how-it-works .step.stagger-item.active {
+            opacity: 1 !important;
+            transform: translateY(0) scale(1) !important;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transition: opacity 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+                        transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+                        box-shadow 0.5s ease !important;
+        }
+        
+        .how-it-works .step-number {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .how-it-works .step.active:hover .step-number {
+            transform: scale(1.15) rotate(5deg);
+        }
+    </style>
 </head>
 <body>
+    <!-- Progress bar will be inserted by JavaScript -->
+    
     <header class="transparent">
         <div class="container">
             <nav class="navbar">
@@ -21,10 +138,10 @@
                     <img src="/images/logo.png" alt="GOAT Trading Bot Logo" class="logo-img">
                 </a>
                 <ul class="nav-links">
-                    <li><a href="#tradingbot">Trading Bot</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="/documentation">Documentation</a></li>
+                    <li><a href="#tradingbot" class="nav-link">Trading Bot</a></li>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                    <li><a href="/documentation" class="nav-link">Documentation</a></li>
                     <li><a href="https://t.me/goattradingbotwaitlist" class="btn" target="_blank" rel="noopener noreferrer">Join Waitlist</a></li>
                 </ul>
                 <div class="menu-toggle">
@@ -45,7 +162,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Goat Trading Bot</h1>
-                <p class="hero-subtitle">The premium trading bot built on Base</p>
+                <p class="hero-subtitle">GOATed by Design, Degen by Nature.</p>
                 <div class="hero-cta">
                     <a href="https://t.me/goattradingbotwaitlist" class="btn" target="_blank" rel="noopener noreferrer">Join Waitlist</a>
                 </div>
@@ -56,11 +173,11 @@
     <!-- Products Section inspired by HAQQ -->
     <section id="tradingbot" class="products">
         <div class="container">
-            <h2 class="products-title">Explore the features powered by GOAT Trading Bot</h2>
-            <p class="products-subtitle">Our trading bot combines powerful features with user-friendly experience</p>
+            <h2 class="products-title fade-in">Why trade with GOAT?</h2>
+            <p class="products-subtitle fade-in">For degens who don't sleep — you need a bot that doesn't either.</p>
             
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card bounce-in">
                     <div class="card-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
@@ -68,7 +185,7 @@
                     <p class="product-description">Stay ahead of the game with lightning-fast, one-click trades that execute in milliseconds.</p>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card bounce-in">
                     <div class="card-icon">
                         <i class="fas fa-clock"></i>
                     </div>
@@ -76,7 +193,7 @@
                     <p class="product-description">GOAT never sleeps, ensuring you catch the dip and sell the top even while you're away.</p>
                 </div>
                 
-                <div class="product-card">
+                <div class="product-card bounce-in">
                     <div class="card-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
@@ -89,35 +206,35 @@
 
     <section class="clients">
         <div class="container">
-            <h2 class="section-title">Trusted by crypto traders worldwide</h2>
-            <p class="section-subtitle">Join our growing community of successful traders</p>
+            <h2 class="section-title fade-in">Trusted by crypto traders worldwide</h2>
+            <p class="section-subtitle fade-in">Join our growing community of successful traders</p>
             <div class="client-logos">
-                <div class="profile-container">
-                    <a href="https://x.com/wizonroids" class="profile-link" target="_blank" rel="noopener noreferrer">
+                <div class="profile-container stagger-item">
+                    <a href="https://x.com/wizonroids" class="profile-link scale-in" target="_blank" rel="noopener noreferrer">
                         <div class="profile-circle">
                             <img src="/images/profile-1.png" alt="Wiz's Profile" class="profile-image">
                         </div>
                         <p class="profile-name">@wizonroids</p>
                     </a>
                 </div>
-                <div class="profile-container">
-                    <a href="https://x.com/BasedRispaw" class="profile-link" target="_blank" rel="noopener noreferrer">
+                <div class="profile-container stagger-item">
+                    <a href="https://x.com/BasedRispaw" class="profile-link scale-in" target="_blank" rel="noopener noreferrer">
                         <div class="profile-circle">
                             <img src="/images/profile-2.png" alt="Rispaw's Profile" class="profile-image">
                         </div>
                         <p class="profile-name">@BasedRispaw</p>
                     </a>
                 </div>
-                <div class="profile-container">
-                    <a href="https://x.com/BasedRafiki" class="profile-link" target="_blank" rel="noopener noreferrer">
+                <div class="profile-container stagger-item">
+                    <a href="https://x.com/BasedRafiki" class="profile-link scale-in" target="_blank" rel="noopener noreferrer">
                         <div class="profile-circle">
                             <img src="/images/profile-3.png" alt="Rafiki's Profile" class="profile-image">
                         </div>
                         <p class="profile-name">@BasedRafiki</p>
                     </a>
                 </div>
-                <div class="profile-container">
-                    <a href="https://x.com/BasedSheik" class="profile-link" target="_blank" rel="noopener noreferrer">
+                <div class="profile-container stagger-item">
+                    <a href="https://x.com/BasedSheik" class="profile-link scale-in" target="_blank" rel="noopener noreferrer">
                         <div class="profile-circle">
                             <img src="/images/profile-4.png" alt="Sheik's Profile" class="profile-image">
                         </div>
@@ -130,11 +247,11 @@
 
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Why choose GOAT Trading Bot?</h2>
-            <p class="section-subtitle">Designed by traders, for traders - GOAT Trading Bot combines powerful features with user-friendly experience</p>
+            <h2 class="section-title fade-in">Explore our GOATed features</h2>
+            <p class="section-subtitle fade-in">Built by traders, for traders — the GOAT Trading Bot delivers powerful tools wrapped in a smooth, no-BS experience.</p>
             
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card slide-in-left">
                     <div class="feature-icon">
                         <i class="fas fa-robot"></i>
                     </div>
@@ -142,7 +259,7 @@
                     <p>Set your strategy and let our bot execute trades automatically based on market conditions and your predefined parameters.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card slide-in-right">
                     <div class="feature-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
@@ -150,7 +267,7 @@
                     <p>Access comprehensive dashboards with real-time performance metrics, market trends, and trade history.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card slide-in-left">
                     <div class="feature-icon">
                         <i class="fas fa-wallet"></i>
                     </div>
@@ -158,7 +275,7 @@
                     <p>GOAT traders have at least a HODL and a Trading portfolio. Add up to 5 wallets to keep your portfolios organized.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card slide-in-right">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
@@ -166,7 +283,7 @@
                     <p>Implement stop-loss orders, position sizing, and portfolio diversification to protect your investments.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card slide-in-left">
                     <div class="feature-icon">
                         <i class="fas fa-exchange-alt"></i>
                     </div>
@@ -174,7 +291,7 @@
                     <p>GOAT helps you effortlessly catch dips and sell at peak prices. You can set as many buy or sell orders as you need.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card slide-in-right">
                     <div class="feature-icon">
                         <i class="fas fa-users"></i>
                     </div>
@@ -185,43 +302,28 @@
         </div>
     </section>
 
-    <!-- Platform Overview Section -->
-    <section class="platform-overview">
-        <div class="container">
-            <div class="platform-overview-container">
-                <h2 class="platform-overview-title">100+ users already trust GOAT Trading Bot</h2>
-                <p class="platform-overview-subtitle">One App for Everything Crypto. Trade faster, win bigger with our automated crypto trading bot.</p>
-                
-                <!-- Placeholder for platform image -->
-                <div class="platform-overview-image">
-                    <img src="/images/hero.png" alt="Trading Bot Dashboard" style="width: 100%; border-radius: 12px;">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- How It Works Section -->
     <section class="how-it-works" id="how-it-works">
         <div class="container">
-            <h2 class="section-title">Created from trenchers to trenchers</h2>
-            <p class="section-subtitle">Get started in minutes with our simple four-step process</p>
+            <h2 class="section-title fade-in">Built in the trenches. Made for the trenches</h2>
+            <p class="section-subtitle fade-in">Get up and running in minutes with our no-fluff, four-step setup.</p>
             <div class="steps">
-                <div class="step">
+                <div class="step stagger-item">
                     <div class="step-number">1</div>
                     <h3>Start</h3>
                     <p>GOAT generates a wallet address for you and allows you to import yours.</p>
                 </div>
-                <div class="step">
+                <div class="step stagger-item">
                     <div class="step-number">2</div>
                     <h3>Deposit</h3>
                     <p>Fund your wallet by withdrawing from a centralized exchange or transferring from another wallet.</p>
                 </div>
-                <div class="step">
+                <div class="step stagger-item">
                     <div class="step-number">3</div>
                     <h3>Trade</h3>
                     <p>Paste the contract address, hit "Buy" or "Sell" for an instant market order, or set a limit order to buy or sell at your ideal market cap.</p>
                 </div>
-                <div class="step">
+                <div class="step stagger-item">
                     <div class="step-number">4</div>
                     <h3>Track</h3>
                     <p>Track your PNL with real-time insights in the "Positions" menu.</p>
@@ -233,13 +335,15 @@
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="container">
-            <h2 class="section-title">What our traders say</h2>
-            <p class="section-subtitle">Join thousands of successful traders who have transformed their trading experience with GOAT</p>
+            <h2 class="section-title fade-in">9 out of 10 boomers agree — GOAT is unbelievably easy to use.</h2>
+            <p class="section-subtitle fade-in">Before you say trading bots are too hard to use, check this quick video on how to get started... (we'll change your mind in 30 seconds)</p>
             
-            <div class="testimonial">
-                <p class="testimonial-quote">"9 out of 10 boomers agree — GOAT is unbelievably easy to use. Before I discovered GOAT, I was constantly missing trades. Now I sleep soundly knowing my bot is working 24/7."</p>
-                <p class="testimonial-author">Alex Morgan</p>
-                <p class="testimonial-position">Full-time Crypto Trader</p>
+            <div class="video-container fade-in">
+                <video controls autoplay loop muted playsinline class="testimonial-video" id="testimonialVideo">
+                    <source src="/videos/backgroundvideo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-instructions">Use the controls to play/pause and adjust volume. Keyboard shortcuts: Space (play/pause), Up/Down (volume), M (mute).</p>
             </div>
         </div>
     </section>
@@ -247,8 +351,8 @@
     <!-- FAQ Section -->
     <section class="faq" id="faq">
         <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-subtitle">Got questions? We've got answers.</p>
+            <h2 class="section-title fade-in">Frequently Asked Questions</h2>
+            <p class="section-subtitle fade-in">Got questions? We've got answers.</p>
             <div class="accordion">
                 <div class="accordion-item">
                     <div class="accordion-header">
@@ -334,9 +438,9 @@
     <!-- CTA / Waitlist Section -->
     <section class="cta" id="waitlist">
         <div class="container">
-            <h2>Join the GOAT Waitlist</h2>
-            <p>Be among the first to access the GOAT Trading Bot and revolutionize your trading experience.</p>
-            <a href="https://t.me/goattradingbotwaitlist" class="btn" target="_blank" rel="noopener noreferrer">Join Waitlist</a>
+            <h2 class="fade-in">Join the GOAT Waitlist</h2>
+            <p class="fade-in">Claim your spot now and get priority access to the GOAT Trading Bot.</p>
+            <a href="https://t.me/goattradingbotwaitlist" class="btn fade-in" target="_blank" rel="noopener noreferrer">Join Waitlist</a>
         </div>
     </section>
 
@@ -344,7 +448,7 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
+                <div class="footer-col fade-in">
                     <a href="/" class="logo" style="display: block; margin-bottom: 20px;">GOAT Trading Bot</a>
                     <ul>
                         <li><a href="/">Home</a></li>
@@ -359,14 +463,14 @@
                     </div>
                 </div>
                 
-                <div class="footer-col">
+                <div class="footer-col fade-in">
                     <h4>Products</h4>
                     <ul>
                         <li><a href="#">Trading Bot</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-col">
+                <div class="footer-col fade-in">
                     <h4>Resources</h4>
                     <ul>
                         <li><a href="/documentation">Documentation</a></li>
@@ -374,7 +478,7 @@
                     </ul>
                 </div>
                 
-                <div class="footer-col">
+                <div class="footer-col fade-in">
                     <h4>Company</h4>
                     <ul>
                         <li><a href="/about">About Us</a></li>
@@ -395,5 +499,115 @@
     </footer>
 
     <script src="/js/main.js"></script>
+    
+    <script>
+        // Video player enhancements
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoElement = document.getElementById('testimonialVideo');
+            
+            if (videoElement) {
+                // Auto-unmute when user interacts with the video
+                videoElement.addEventListener('click', function() {
+                    if (videoElement.muted) {
+                        videoElement.muted = false;
+                    }
+                });
+                
+                // Reset video when it ends if not looping
+                videoElement.addEventListener('ended', function() {
+                    if (!videoElement.loop) {
+                        videoElement.currentTime = 0;
+                    }
+                });
+                
+                // Add keyboard shortcuts for video control
+                document.addEventListener('keydown', function(e) {
+                    if (document.activeElement === videoElement || videoElement.contains(document.activeElement)) {
+                        // Space bar: play/pause
+                        if (e.code === 'Space') {
+                            e.preventDefault();
+                            if (videoElement.paused) {
+                                videoElement.play();
+                            } else {
+                                videoElement.pause();
+                            }
+                        }
+                        
+                        // Up/Down arrows: volume control
+                        if (e.code === 'ArrowUp') {
+                            e.preventDefault();
+                            videoElement.volume = Math.min(1, videoElement.volume + 0.1);
+                        }
+                        
+                        if (e.code === 'ArrowDown') {
+                            e.preventDefault();
+                            videoElement.volume = Math.max(0, videoElement.volume - 0.1);
+                        }
+                        
+                        // M key: mute/unmute
+                        if (e.code === 'KeyM') {
+                            e.preventDefault();
+                            videoElement.muted = !videoElement.muted;
+                        }
+                    }
+                });
+            }
+            
+            // Immediately activate viewport-visible elements
+            function activateElementsInViewport() {
+                document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .bounce-in, .stagger-item').forEach((element, index) => {
+                    const rect = element.getBoundingClientRect();
+                    // If element is in viewport
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        // Add a minimal stagger even for initial elements
+                        if (element.classList.contains('stagger-item')) {
+                            setTimeout(() => {
+                                element.classList.add('active');
+                            }, index * 50);
+                        } else {
+                            element.classList.add('active');
+                        }
+                    }
+                });
+            }
+            
+            // Run immediately and on scroll
+            activateElementsInViewport();
+            window.addEventListener('scroll', activateElementsInViewport, { passive: true });
+            
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -15% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add active class with minimal delay
+                        entry.target.classList.add('active');
+                        // Only observe once
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all elements with animation classes
+            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .bounce-in, .stagger-item').forEach((element, index) => {
+                // Add a small delay for stagger items based on their index
+                if (element.classList.contains('stagger-item')) {
+                    if (element.closest('.how-it-works')) {
+                        // Special handling for how-it-works cards
+                        const cardIndex = Array.from(element.parentNode.children).indexOf(element);
+                        element.style.transitionDelay = `${cardIndex * 0.12}s`;
+                    } else {
+                        element.style.transitionDelay = `${index * 0.05}s`;
+                    }
+                }
+                observer.observe(element);
+            });
+        });
+    </script>
 </body>
 </html> 

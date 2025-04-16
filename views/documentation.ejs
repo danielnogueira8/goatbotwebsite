@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="/images/logo.png" type="image/png">
+    <link rel="icon" href="/images/favicon.png" type="image/png">
     <style>
         .doc-content {
             padding: 60px 0;
@@ -122,8 +122,10 @@
             .doc-container {
                 grid-template-columns: 1fr;
             }
-            .contents-card {
-                display: none;
+            .doc-nav {
+                position: relative;
+                top: 0;
+                margin-bottom: 30px;
             }
         }
     </style>
@@ -133,15 +135,15 @@
     <header>
         <div class="container">
             <div class="navbar">
-                <a href="/" class="logo">
+                <a href="/" class="logo no-focus-outline">
                     <img src="/images/logo.png" alt="GOAT Trading Bot Logo" class="logo-img">
                 </a>
                 <ul class="nav-links">
-                    <li><a href="#tradingbot">Trading Bot</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="/documentation" class="active">Documentation</a></li>
-                    <li><a href="https://t.me/goattradingbotwaitlist" class="btn">Join Waitlist</a></li>
+                    <li><a href="/#tradingbot" class="no-focus-outline">Trading Bot</a></li>
+                    <li><a href="/#features" class="no-focus-outline">Features</a></li>
+                    <li><a href="/#how-it-works" class="no-focus-outline">How It Works</a></li>
+                    <li><a href="/documentation" class="active no-focus-outline">Documentation</a></li>
+                    <li><a href="https://t.me/goattradingbotwaitlist" class="btn no-focus-outline">Join Waitlist</a></li>
                 </ul>
                 <div class="menu-toggle">
                     <span></span>
@@ -167,15 +169,17 @@
         <div class="container">
             <div class="doc-container">
                 <div class="doc-sidebar">
-                    <div class="contents-card">
-                        <h2>Contents</h2>
-                        <a href="#getting-started" class="active">Getting Started</a>
-                        <a href="#trading">Trading</a>
-                        <a href="#portfolio">Managing Your Portfolio</a>
-                        <a href="#wallets">Managing Wallets</a>
-                        <a href="#orders">Limit Orders</a>
-                        <a href="#referrals">Referral Program</a>
-                        <a href="#security">Security</a>
+                    <div class="doc-nav">
+                        <h3>Contents</h3>
+                        <ul>
+                            <li><a href="#getting-started" class="active no-focus-outline">Getting Started</a></li>
+                            <li><a href="#trading" class="no-focus-outline">Trading</a></li>
+                            <li><a href="#portfolio" class="no-focus-outline">Managing Your Portfolio</a></li>
+                            <li><a href="#wallets" class="no-focus-outline">Managing Wallets</a></li>
+                            <li><a href="#orders" class="no-focus-outline">Limit Orders</a></li>
+                            <li><a href="#referrals" class="no-focus-outline">Referral Program</a></li>
+                            <li><a href="#security" class="no-focus-outline">Security</a></li>
+                        </ul>
                     </div>
                 </div>
                 
@@ -322,49 +326,58 @@
         <div class="container">
             <h2>Ready to start trading?</h2>
             <p>Join the GOAT waitlist today and be among the first to access our powerful trading bot.</p>
-            <a href="/#waitlist" class="btn">Join Waitlist</a>
+            <a href="https://t.me/goattradingbotwaitlist" class="btn no-focus-outline" target="_blank" rel="noopener noreferrer">Join Waitlist</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>GOAT Trading Bot</h3>
-                    <p>The greatest bot for the greatest traders on Base chain.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Navigation</h3>
-                    <ul class="footer-links">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="/" class="logo" style="display: block; margin-bottom: 20px;">GOAT Trading Bot</a>
+                    <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/documentation">Documentation</a></li>
-                        <li><a href="/#features">Features</a></li>
-                        <li><a href="/#faq">FAQ</a></li>
                         <li><a href="/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service">Terms of Service</a></li>
+                        <li><a href="/cookies-policy">Cookies Policy</a></li>
                     </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Features</h3>
-                    <ul class="footer-links">
-                        <li><a href="#wallets">Multiple Wallets</a></li>
-                        <li><a href="#orders">Limit Orders</a></li>
-                        <li><a href="#referrals">Referral Program</a></li>
-                        <li><a href="#security">Security</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Connect</h3>
                     <div class="social-links">
-                        <a href="https://x.com/GoatTradingBot" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="https://x.com/GoatTradingBot" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
                     </div>
                 </div>
+                
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#">Trading Bot</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/documentation">Documentation</a></li>
+                        <li><a href="https://t.me/+NnF1N5a4jL40NDVk" target="_blank" rel="noopener noreferrer">Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>GOAT Trading Bot © <%= new Date().getFullYear() %>. All rights reserved.</p>
+                <p>© <%= new Date().getFullYear() %> GOAT Trading Bot. All rights reserved.</p>
                 <div class="footer-links">
                     <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/terms-of-service">Terms of Service</a>
                     <a href="/cookies-policy">Cookies Policy</a>
                 </div>
             </div>
