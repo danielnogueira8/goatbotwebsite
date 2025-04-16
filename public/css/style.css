@@ -8,11 +8,11 @@
   --text-color: #ffffff;
   --text-light: #f8f9fa;
   --light-text: #f8f9fa;
-  --bg-color: #000000;
-  --secondary-bg: #0a0a0a;
-  --tertiary-bg: #111111;
-  --dark-bg: #000000;
-  --border-color: #1a1a1a;
+  --bg-color: #0a1020;
+  --secondary-bg: #0f1729;
+  --tertiary-bg: #151f35;
+  --dark-bg: #0a1020;
+  --border-color: #1a2435;
   --shadow-sm: 0 1px 2px 0 rgba(255, 255, 255, 0.05);
   --shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -1px rgba(255, 255, 255, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(255, 255, 255, 0.1), 0 4px 6px -2px rgba(255, 255, 255, 0.05);
@@ -28,7 +28,11 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.6;
   color: var(--text-color);
-  background-color: var(--bg-color);
+  background: linear-gradient(135deg, 
+    var(--bg-color) 0%, 
+    var(--secondary-bg) 50%, 
+    var(--tertiary-bg) 100%);
+  min-height: 100vh;
 }
 
 .container {
@@ -66,19 +70,19 @@ header .container {
 
 header.transparent {
   background: linear-gradient(135deg, 
-    rgba(15, 28, 53, 0.2) 0%, 
-    rgba(36, 107, 253, 0.1) 40%, 
-    rgba(30, 91, 215, 0.15) 60%, 
-    rgba(15, 28, 53, 0.2) 100%);
+    rgba(10, 16, 32, 0.2) 0%, 
+    rgba(15, 23, 41, 0.1) 40%, 
+    rgba(21, 31, 53, 0.15) 60%, 
+    rgba(10, 16, 32, 0.2) 100%);
   backdrop-filter: blur(5px);
 }
 
 header.scrolled {
   background: linear-gradient(135deg, 
-    rgba(15, 28, 53, 0.76) 0%, /* Reduced from 0.95 */
-    rgba(24, 50, 88, 0.72) 40%, /* Reduced from 0.9 */
-    rgba(30, 91, 215, 0.68) 60%, /* Reduced from 0.85 */
-    rgba(15, 28, 53, 0.76) 100%); /* Reduced from 0.95 */
+    rgba(10, 16, 32, 0.95) 0%, 
+    rgba(15, 23, 41, 0.9) 40%, 
+    rgba(21, 31, 53, 0.85) 60%, 
+    rgba(10, 16, 32, 0.95) 100%);
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   padding: 15px 0;
@@ -257,7 +261,10 @@ header.scrolled {
   background-image: 
     radial-gradient(circle at 20% 30%, rgba(36, 107, 253, 0.15) 0%, transparent 30%),
     radial-gradient(circle at 80% 20%, rgba(138, 66, 255, 0.1) 0%, transparent 40%),
-    linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(7, 14, 26, 0.5) 100%);
+    linear-gradient(135deg, 
+      var(--bg-color) 0%, 
+      var(--secondary-bg) 50%, 
+      var(--tertiary-bg) 100%);
 }
 
 .hero-bg {
@@ -425,6 +432,10 @@ video.hero-bg {
   margin-top: -1px; /* Ensures no gap between sections */
   background-color: var(--bg-color);
   text-align: center;
+  background: linear-gradient(135deg, 
+    var(--bg-color) 0%, 
+    var(--secondary-bg) 50%, 
+    var(--tertiary-bg) 100%);
 }
 
 .products-title {
@@ -470,24 +481,21 @@ video.hero-bg {
 }
 
 .product-card {
-  background: linear-gradient(145deg, 
-    rgba(30, 30, 35, 0.85) 0%, 
-    rgba(25, 25, 30, 0.9) 100%);
-  border-radius: 12px;
-  padding: 40px 30px;
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08);
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
   text-align: center;
+  padding: 30px;
+  background: linear-gradient(145deg, 
+    rgba(15, 23, 41, 0.95) 0%, 
+    rgba(10, 16, 32, 0.98) 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
+  display: block;
+  height: auto;
 }
 
 .product-card:hover {
-  transform: none;
   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.25);
 }
@@ -503,18 +511,16 @@ video.hero-bg {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 30px;
+  margin: 0 auto 24px;
   font-size: 24px;
   color: #ffffff;
   box-shadow: 0 4px 15px rgba(36, 107, 253, 0.25);
-  transition: all 0.3s ease;
   border: 1px solid rgba(36, 107, 253, 0.2);
   position: relative;
   z-index: 2;
 }
 
 .product-card:hover .card-icon {
-  transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(36, 107, 253, 0.35);
   background: linear-gradient(135deg, 
     rgba(36, 107, 253, 0.3) 0%, 
@@ -577,6 +583,10 @@ video.hero-bg {
   padding: 100px 0;
   background-color: var(--secondary-bg);
   text-align: center;
+  background: linear-gradient(135deg, 
+    var(--secondary-bg) 0%, 
+    var(--tertiary-bg) 50%, 
+    var(--bg-color) 100%);
 }
 
 .clients-title {
@@ -660,6 +670,10 @@ video.hero-bg {
   padding: 100px 0;
   background-color: var(--bg-color);
   text-align: center;
+  background: linear-gradient(135deg, 
+    var(--bg-color) 0%, 
+    var(--secondary-bg) 50%, 
+    var(--tertiary-bg) 100%);
 }
 
 .section-title {
@@ -706,24 +720,21 @@ video.hero-bg {
 }
 
 .feature-card {
-  background: linear-gradient(145deg, 
-    rgba(30, 30, 35, 0.85) 0%, 
-    rgba(25, 25, 30, 0.9) 100%);
-  border-radius: 12px;
-  padding: 40px 30px;
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08);
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
   text-align: center;
+  padding: 30px;
+  background: linear-gradient(145deg, 
+    rgba(15, 23, 41, 0.95) 0%, 
+    rgba(10, 16, 32, 0.98) 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
+  display: block;
+  height: auto;
 }
 
 .feature-card:hover {
-  transform: none;
   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.25);
 }
@@ -743,14 +754,12 @@ video.hero-bg {
   font-size: 24px;
   color: #ffffff;
   box-shadow: 0 4px 15px rgba(36, 107, 253, 0.25);
-  transition: all 0.3s ease;
   border: 1px solid rgba(36, 107, 253, 0.2);
   position: relative;
   z-index: 2;
 }
 
 .feature-card:hover .feature-icon {
-  transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(36, 107, 253, 0.35);
   background: linear-gradient(135deg, 
     rgba(36, 107, 253, 0.3) 0%, 
@@ -788,6 +797,10 @@ video.hero-bg {
   overflow: hidden;
   color: white;
   text-align: center;
+  background: linear-gradient(135deg, 
+    var(--tertiary-bg) 0%, 
+    var(--secondary-bg) 50%, 
+    var(--bg-color) 100%);
 }
 
 .platform-overview-container {
@@ -841,6 +854,10 @@ video.hero-bg {
   padding: 100px 0;
   background-color: var(--bg-color);
   text-align: center;
+  background: linear-gradient(135deg, 
+    var(--bg-color) 0%, 
+    var(--secondary-bg) 50%, 
+    var(--tertiary-bg) 100%);
 }
 
 .steps {
@@ -854,41 +871,18 @@ video.hero-bg {
   text-align: center;
   padding: 30px;
   background: linear-gradient(145deg, 
-    rgba(30, 30, 35, 0.85) 0%, 
-    rgba(25, 25, 30, 0.9) 100%);
+    rgba(15, 23, 41, 0.95) 0%, 
+    rgba(10, 16, 32, 0.98) 100%);
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
 }
 
-.step:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(145deg,
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(255, 255, 255, 0.05) 50%,
-    rgba(255, 255, 255, 0.03) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
-  pointer-events: none;
-}
-
 .step:hover {
-  transform: none;
   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.25);
-}
-
-.step:hover:after {
-  opacity: 1;
 }
 
 .step-number {
@@ -907,14 +901,12 @@ video.hero-bg {
   font-weight: 600;
   font-size: 20px;
   box-shadow: 0 4px 15px rgba(36, 107, 253, 0.25);
-  transition: all 0.3s ease;
   border: 1px solid rgba(36, 107, 253, 0.2);
   position: relative;
   z-index: 2;
 }
 
 .step:hover .step-number {
-  transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(36, 107, 253, 0.35);
   background: linear-gradient(135deg, 
     rgba(36, 107, 253, 0.3) 0%, 
@@ -980,6 +972,10 @@ video.hero-bg {
   padding: 100px 0;
   background-color: var(--bg-color);
   text-align: center;
+  background: linear-gradient(135deg, 
+    var(--bg-color) 0%, 
+    var(--secondary-bg) 50%, 
+    var(--tertiary-bg) 100%);
 }
 
 .testimonial {
@@ -1048,6 +1044,10 @@ video.hero-bg {
   padding: 100px 0;
   background-color: var(--secondary-bg);
   text-align: center;
+  background: linear-gradient(135deg, 
+    var(--secondary-bg) 0%, 
+    var(--tertiary-bg) 50%, 
+    var(--bg-color) 100%);
 }
 
 .accordion {
@@ -1126,6 +1126,10 @@ video.hero-bg {
   background-image: radial-gradient(circle at 15% 50%, rgba(36, 107, 253, 0.1), transparent 25%), 
                     radial-gradient(circle at 85% 30%, rgba(0, 204, 143, 0.1), transparent 25%);
   text-align: center;
+  background: linear-gradient(135deg, 
+    var(--tertiary-bg) 0%, 
+    var(--secondary-bg) 50%, 
+    var(--bg-color) 100%);
 }
 
 .cta h2 {
@@ -1254,6 +1258,10 @@ footer {
   background-color: var(--dark-bg);
   color: var(--light-text);
   padding: 80px 0 40px;
+  background: linear-gradient(135deg, 
+    var(--tertiary-bg) 0%, 
+    var(--secondary-bg) 50%, 
+    var(--bg-color) 100%);
 }
 
 .footer-grid {
@@ -1516,9 +1524,9 @@ footer {
   /* Enhanced gradient background for mobile when video is hidden */
   .hero {
     background: linear-gradient(135deg, 
-      rgba(0, 0, 0, 1) 0%, 
-      rgba(15, 28, 53, 0.95) 50%, 
-      rgba(0, 0, 0, 1) 100%);
+      var(--bg-color) 0%, 
+      var(--secondary-bg) 50%, 
+      var(--tertiary-bg) 100%);
   }
   
   /* Further reduce padding */
@@ -1634,7 +1642,6 @@ footer {
 
 /* Restore product card hover effect */
 .product-card:hover {
-  transform: none;
   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.25);
 }
@@ -1722,7 +1729,10 @@ footer {
   background-image: 
     radial-gradient(circle at 20% 30%, rgba(36, 107, 253, 0.15) 0%, transparent 30%),
     radial-gradient(circle at 80% 20%, rgba(138, 66, 255, 0.1) 0%, transparent 40%),
-    linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(7, 14, 26, 0.5) 100%);
+    linear-gradient(135deg, 
+      var(--bg-color) 0%, 
+      var(--secondary-bg) 50%, 
+      var(--tertiary-bg) 100%);
 }
 
 .about-title {
@@ -1847,4 +1857,42 @@ footer {
   .about-section h2 {
     font-size: 1.5rem;
   }
+}
+
+/* Update the transition property to exclude transform */
+.product-card,
+.feature-card,
+.product-card .card-icon,
+.feature-icon {
+  transition: none;
+}
+
+/* Remove transform from profile containers */
+.profile-container:hover {
+  transform: none;
+}
+
+/* Remove transform from buttons inside cards */
+.product-card .btn:hover,
+.feature-card .btn:hover {
+  transform: none;
+}
+
+/* Remove transform from links inside cards */
+.product-card a:hover,
+.feature-card a:hover {
+  transform: none;
+}
+
+/* Remove all transitions and transforms */
+.product-card,
+.feature-card,
+.product-card:hover,
+.feature-card:hover,
+.product-card .card-icon,
+.feature-icon,
+.product-card:hover .card-icon,
+.feature-card:hover .feature-icon {
+  transition: none !important;
+  transform: none !important;
 } 
