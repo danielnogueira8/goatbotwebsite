@@ -1,0 +1,1172 @@
+/* Responsive Styles for GOAT Trading Bot Website */
+
+/* Base Responsive Adjustments */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+/* Fix for mobile view black bar on right side */
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Large Tablets */
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+    padding: 0 25px; /* Increased side padding */
+  }
+  
+  /* Logo size for tablet */
+  .logo-img {
+    height: 70px;
+  }
+  
+  /* Navigation adjustments for one-line navbar */
+  .nav-links {
+    gap: 8px;
+  }
+  
+  .nav-links li {
+    margin-left: 6px;
+  }
+  
+  .nav-links a {
+    font-size: 14px;
+  }
+  
+  .nav-links a.btn {
+    font-size: 14px;
+    padding: 10px 16px;
+    border-radius: 10px;
+  }
+  
+  /* Section spacing */
+  .products, .features, .how-it-works, .platform-overview, 
+  .use-cases, .testimonials, .faq, .cta {
+    padding: 70px 0;
+    margin-bottom: 25px; /* Add spacing between sections */
+  }
+  
+  /* Grid adjustments */
+  .products-grid, .features-grid {
+    gap: 25px; /* Increased gap */
+  }
+  
+  /* Hero section */
+  .hero-title {
+    font-size: 48px;
+    margin-bottom: 20px; /* Add space below title */
+  }
+  
+  .hero-subtitle {
+    font-size: 20px;
+    margin-bottom: 30px; /* Add space below subtitle */
+  }
+  
+  /* Platform image */
+  .platform-overview-image {
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto; /* Center with more vertical space */
+  }
+  
+  /* Floating element (goat image) - REDUCED SIZE */
+  .floating-element {
+    max-width: 40%; /* Increased to original size */
+    max-height: 40%; /* Increased to original size */
+    right: 10%; /* Original position */
+    top: 32%; /* Original position */
+  }
+  
+  /* Steps in How It Works */
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px; /* Increased gap between steps */
+  }
+  
+  /* Testimonials */
+  .testimonial {
+    padding: 35px; /* Increased padding */
+    margin-bottom: 25px; /* Add space between testimonials */
+  }
+}
+
+/* Tablets and Small Laptops */
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+    padding: 0 30px; /* Increased horizontal padding */
+  }
+  
+  /* Header and Navigation */
+  header {
+    padding: 18px 0; /* More vertical padding */
+  }
+  
+  header .container {
+    padding: 0 15px; /* Add horizontal padding to the header container */
+  }
+  
+  .navbar {
+    position: relative;
+    padding-right: 15px; /* Add padding to the right side of navbar */
+    padding-left: 15px; /* Add equal padding to the left side of navbar */
+  }
+  
+  .logo-img {
+    height: 60px;
+    margin: 5px 0; /* Add space around logo */
+  }
+  
+  .logo {
+    margin-left: 5px; /* Add small left margin to the logo */
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    flex-direction: column;
+    /* Improved gradient background */
+    background: linear-gradient(145deg, 
+      rgba(7, 13, 29, 0.92) 0%, 
+      rgba(12, 24, 48, 0.94) 50%,
+      rgba(20, 39, 85, 0.94) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* For Safari */
+    border-left: 1px solid rgba(58, 123, 213, 0.15);
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    padding: 100px 30px 30px; /* Increased padding */
+    z-index: 999;
+    transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1); /* Improved transition */
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 15px; /* Reduced gap for cleaner look */
+    overflow-y: auto; /* Allow scrolling within menu */
+    overflow-x: hidden; /* Prevent horizontal scrolling in menu */
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  }
+  
+  /* Add subtle background elements to menu */
+  .nav-links::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 90% 10%, rgba(58, 123, 213, 0.08) 0%, transparent 60%),
+      radial-gradient(circle at 10% 90%, rgba(58, 123, 213, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .nav-links.active {
+    right: 0;
+  }
+  
+  .nav-links li {
+    margin-left: 0;
+    width: 100%;
+    margin-bottom: 5px; /* Reduced for cleaner spacing */
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition-delay: calc(0.07s * var(--item-index, 0));
+  }
+  
+  .nav-links.active li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .nav-links a {
+    display: block;
+    padding: 14px 0; /* Slightly increased padding */
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease-out;
+  }
+  
+  .nav-links a::before {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 0; /* Start with 0 width */
+    height: 2px;
+    background: linear-gradient(90deg, 
+      rgba(58, 123, 213, 0.8) 0%, 
+      rgba(94, 129, 209, 0.4) 100%);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+    display: none; /* Hide the underline element completely */
+  }
+  
+  .nav-links a:hover {
+    color: #fff;
+    padding-left: 5px; /* Subtle shift on hover */
+  }
+  
+  .nav-links a:hover::before {
+    width: 0; /* Override to keep it hidden on hover */
+    display: none; /* Hide the underline element completely */
+  }
+  
+  /* Active link styling */
+  .nav-links a.active {
+    color: #fff;
+    padding-left: 8px;
+    font-weight: 600;
+  }
+  
+  .nav-links a.active::before {
+    width: 0; /* Override to keep it hidden when active */
+    display: none; /* Hide the underline element completely */
+  }
+  
+  .nav-links a.btn {
+    margin-top: 30px; /* More space above button */
+    text-align: center;
+    padding: 14px 25px; /* Slightly larger button */
+    background: linear-gradient(135deg, 
+      rgba(106, 125, 254, 0.9) 0%,
+      rgba(54, 82, 227, 0.95) 100%);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+  }
+  
+  .nav-links a.btn:hover {
+    transform: translateY(-3px);
+    padding-left: 25px; /* Override the left padding from normal links */
+    box-shadow: 0 10px 25px rgba(36, 107, 253, 0.35);
+    background: linear-gradient(135deg, 
+      rgba(106, 125, 254, 1) 0%,
+      rgba(54, 82, 227, 1) 100%);
+  }
+  
+  .nav-links a.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .menu-toggle {
+    display: flex !important;
+    z-index: 1000;
+    margin-right: 20px; /* Increased right margin for more spacing from the edge */
+    position: relative;
+  }
+  
+  /* Close button styling for the menu */
+  .menu-toggle.active span:nth-child(1),
+  .menu-toggle.active span:nth-child(3) {
+    background: white;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+  
+  /* Hero section */
+  .hero {
+    padding: 110px 0 60px; /* Increased padding */
+    position: relative; /* Ensure proper positioning for overlay */
+  }
+  
+  .hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 2; /* Place above overlay */
+  }
+  
+  .hero-title {
+    font-size: 32px;
+    margin-bottom: 25px; /* Increased margin */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+    margin-bottom: 30px; /* Increased margin */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .hero-cta {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+  }
+  
+  .hero-cta .btn {
+    padding: 14px 24px; /* Larger button */
+    font-size: 14px;
+    margin: 10px auto; /* Center the button */
+  }
+  
+  .floating-element {
+    width: 300px;
+    top: 20%;
+    right: -80px;
+  }
+  
+  /* Grid layouts */
+  .products-grid, 
+  .features-grid {
+    gap: 30px; /* Increased gap */
+  }
+  
+  /* Cards */
+  .product-card, 
+  .feature-card {
+    padding: 30px; /* Increased padding */
+    margin-bottom: 20px; /* Space between cards */
+  }
+  
+  /* Sections */
+  .products, .features, .how-it-works, .platform-overview, 
+  .use-cases, .testimonials, .faq, .cta {
+    padding: 70px 0; /* More vertical padding */
+    margin-bottom: 30px; /* Space between sections */
+  }
+  
+  /* Typography */
+  .section-title, 
+  .products-title {
+    font-size: 32px;
+    margin-bottom: 25px; /* Increased margin */
+  }
+  
+  .section-subtitle, 
+  .products-subtitle {
+    font-size: 16px;
+    margin-bottom: 35px; /* Increased margin */
+  }
+  
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px; /* Increased gap */
+    padding: 30px 0; /* Add padding */
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px; /* Increased gap */
+    text-align: center;
+    padding-top: 25px; /* More space at top */
+  }
+  
+  /* Form elements enhanced spacing on mobile */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea,
+  select {
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+  
+  /* Waitlist form */
+  #waitlist-form {
+    width: 100%;
+    max-width: 100%;
+    margin: 25px auto;
+  }
+  
+  /* Documentation page improvements */
+  .doc-section {
+    padding: 30px 25px;
+    margin-bottom: 30px;
+  }
+  
+  .doc-nav {
+    padding: 25px;
+    margin-bottom: 30px;
+  }
+  
+  .doc-nav a {
+    padding: 12px 0;
+  }
+  
+  /* Policy pages (privacy, terms, cookies) */
+  .policy-section,
+  .terms-section {
+    padding: 30px 25px;
+    margin-bottom: 30px;
+  }
+  
+  /* About page */
+  .about-section {
+    margin-bottom: 40px;
+    padding: 0 15px;
+  }
+  
+  /* Section dividers */
+  /* Removing blue dash separators as requested
+  .products:after,
+  .features:after,
+  .how-it-works:after,
+  .cta:after,
+  .platform-overview:after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 3px;
+    opacity: 0.5;
+  }
+  */
+}
+
+/* Mobile Devices */
+@media (max-width: 576px) {
+  .container {
+    max-width: 100%;
+    padding: 0 20px;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+  }
+  
+  /* Hero section - using styles from 768px media query */
+  /* Enhanced hero section styling for a more premium look */
+  .hero-title {
+    font-size: 32px;
+    text-align: center;
+    width: 100%;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+    background: linear-gradient(to top, 
+      rgba(185, 190, 210, 0.98) 0%, 
+      rgba(210, 215, 230, 0.98) 10%, 
+      rgba(230, 235, 245, 0.95) 25%, 
+      rgba(240, 245, 255, 0.95) 40%,
+      rgba(255, 255, 255, 0.98) 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 
+      0 0 5px rgba(255, 255, 255, 0.1),
+      0 0 20px rgba(58, 123, 213, 0.2);
+  }
+  
+  /* Hide floating element (goat mascot) on documentation page in mobile view */
+  body.documentation-page .floating-element {
+    display: none !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+    padding: 0 10px; /* Add horizontal padding */
+    text-align: center;
+    width: 100%;
+    margin-bottom: 32px; /* Increased from 20px to add more space above button */
+    color: #B8BDC9;
+    letter-spacing: 0.2px;
+  }
+  
+  .hero-cta {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px; /* Added margin-top for additional spacing */
+  }
+  
+  .hero-cta .btn {
+    padding: 18px 34px; /* Increased from 16px 32px */
+    font-size: 16px; /* Increased from 15px */
+    font-weight: 700; /* Increased from 600 */
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Slightly darker shadow */
+    background: linear-gradient(135deg, #6A7DFE 0%, #3652E3 100%);
+    border: none;
+    letter-spacing: 1.2px; /* Increased from 0.3px */
+    text-transform: uppercase; /* Ensure uppercase */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Add subtle text shadow */
+  }
+  
+  .hero-cta .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35); /* Slightly darker shadow on hover */
+  }
+  
+  /* Typography */
+  .section-title, 
+  .products-title {
+    font-size: 28px;
+    margin-bottom: 25px; /* Increased margin */
+  }
+  
+  .section-subtitle, 
+  .products-subtitle {
+    font-size: 15px;
+    margin-bottom: 30px; /* Increased margin */
+    padding: 0 15px; /* Add horizontal padding */
+  }
+  
+  /* Card elements */
+  .card-icon {
+    width: 60px; /* Slightly larger */
+    height: 60px;
+    font-size: 24px;
+    margin-bottom: 20px; /* Add space below icon */
+  }
+  
+  /* Cards */
+  .product-card, 
+  .feature-card,
+  .testimonial {
+    padding: 30px; /* Increased padding */
+    margin-bottom: 25px; /* Space between cards */
+  }
+  
+  /* Forms */
+  #waitlist-form {
+    flex-direction: column;
+    margin: 30px 0; /* Add vertical margin */
+  }
+  
+  #waitlist-form input[type="email"] {
+    width: 100%;
+    margin-bottom: 20px; /* Increased margin */
+    padding: 15px; /* More padding */
+  }
+  
+  #waitlist-form button {
+    width: 100%;
+    padding: 15px; /* More padding */
+  }
+  
+  /* Video handling */
+  video.hero-bg {
+    object-fit: cover;
+    width: 100vw; /* Limit to viewport width */
+    max-width: 100%;
+    height: 100%;
+  }
+  
+  .hero {
+    overflow: hidden; /* Prevent overflow */
+    /* Background image replaced with gradient in the more specific breakpoint below */
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 16, 32, 0.5); /* Dark overlay for better text readability */
+    z-index: 1;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 3; /* Ensure content appears above the overlay */
+  }
+  
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 35px; /* Increased gap */
+    padding: 30px 0; /* Add padding */
+  }
+  
+  .footer-col {
+    margin-bottom: 20px; /* Add space between columns */
+  }
+  
+  .footer-col h4 {
+    margin-bottom: 20px; /* Increased margin */
+  }
+  
+  .footer-col ul li {
+    margin-bottom: 15px; /* More space between list items */
+  }
+  
+  /* Platform image */
+  .platform-overview-image {
+    max-width: 100%;
+    margin: 30px auto; /* Center with more space */
+  }
+  
+  /* Floating element */
+  .floating-element {
+    width: 200px;
+    top: 15%;
+    right: -50px;
+    opacity: 0.5;
+  }
+  
+  /* Sections spacing */
+  .products, .features, .how-it-works, .platform-overview, 
+  .use-cases, .testimonials, .faq, .cta {
+    padding: 60px 0 70px; /* Asymmetrical padding for better spacing */
+    margin-bottom: 20px; /* Space between sections */
+  }
+  
+  /* Additional form improvements on smaller devices */
+  /* Removing blue dash separators as requested
+  .products:after,
+  .features:after,
+  .how-it-works:after,
+  .cta:after,
+  .platform-overview:after {
+    margin-top: 40px;
+  }
+  */
+  
+  /* Make FAQ accordion more tappable */
+  .accordion-header {
+    padding: 20px;
+  }
+  
+  .accordion-body {
+    padding: 0 20px 20px;
+  }
+  
+  /* Improve table responsiveness */
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  /* Improve code blocks readability */
+  .code-block {
+    padding: 20px 15px;
+    margin: 25px 0;
+    overflow-x: auto;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+  
+  /* Stack steps vertically on mobile */
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Center client logos on mobile */
+  .client-logos {
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .profile-container {
+    max-width: 25%;
+  }
+  
+  .profile-circle {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .profile-name {
+    font-size: 0.75rem;
+  }
+  
+  .navbar {
+    padding-left: 20px; /* Add left padding to match the right spacing */
+    padding-right: 0; /* Reset right padding */
+  }
+  
+  .logo {
+    margin-left: 0; /* Reset margin */
+  }
+  
+  .menu-toggle {
+    margin-right: 20px; /* Keep consistent right margin */
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 375px) {
+  .container {
+    padding: 0 20px; /* Comfortable padding */
+  }
+  
+  .hero-title {
+    font-size: 24px;
+    margin-bottom: 12px; /* Reduced from 20px to create a tighter layout */
+  }
+  
+  .hero-subtitle {
+    font-size: 14px;
+    margin-bottom: 26px; /* Increased from 16px for more space before button */
+    padding: 0 5px; /* Reduced horizontal padding */
+  }
+  
+  .hero-cta {
+    margin-top: 6px; /* Added margin-top */
+  }
+  
+  .hero {
+    padding-top: 60px; /* Further reduce top padding for very small screens */
+    position: relative;
+  }
+  
+  .hero-content {
+    padding-top: 15px; /* Reduce padding even more for very small screens */
+  }
+  
+  .section-title, 
+  .products-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding: 0 5px; /* Add horizontal padding */
+  }
+  
+  .logo-img {
+    height: 50px;
+    margin: 5px 0;
+  }
+  
+  /* Improving tap targets for mobile */
+  .nav-links a,
+  .footer-col ul li a,
+  .social-links a {
+    padding: 15px 0; /* Larger tap targets */
+    margin-bottom: 5px; /* Add space between links */
+  }
+
+  /* Improve button usability on smallest screens */
+  .btn {
+    padding: 14px 24px; /* Larger button */
+    font-size: 14px;
+    margin: 8px 0; /* Add space around buttons */
+  }
+  
+  /* Override with specific styling for hero CTA button */
+  .hero-cta .btn {
+    padding: 16px 32px; /* Slightly bigger than regular buttons */
+    font-size: 15px;
+    letter-spacing: 1.2px; /* Consistent letter spacing */
+  }
+  
+  /* Card adjustments */
+  .product-card, 
+  .feature-card,
+  .testimonial {
+    padding: 25px; /* Comfortable padding */
+    margin-bottom: 20px;
+  }
+  
+  /* Footer adjustments */
+  .footer-bottom {
+    padding: 20px 0; /* Add padding */
+  }
+  
+  .footer-links {
+    flex-direction: column; /* Stack links */
+    gap: 15px; /* Space between links */
+  }
+  
+  .footer-links a {
+    padding: 10px 0; /* Add padding */
+  }
+  
+  /* Adjust client logos for very small screens */
+  .client-logos {
+    gap: 10px;
+  }
+  
+  .profile-circle {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .profile-name {
+    font-size: 0.7rem;
+  }
+  
+  .navbar {
+    padding-left: 15px; /* Adjust left padding for smaller screens */
+  }
+  
+  .menu-toggle {
+    margin-right: 15px; /* Adjust right margin for smaller screens */
+  }
+  
+  /* Add light effect specific to smaller screens */
+  .hero::after {
+    opacity: 0.92; /* Slightly increased visibility */
+    filter: drop-shadow(0 10px 28px rgba(21, 45, 112, 0.25)); /* Add a subtle blue shadow */
+  }
+  
+  /* Add a subtle glow behind hero content */
+  .hero-content::before {
+    background: radial-gradient(ellipse at center, rgba(48, 83, 175, 0.15) 0%, transparent 88%);
+  }
+}
+
+/* Fix for menu toggle button */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 1000;
+  position: relative;
+}
+
+/* Fix for hero on landscape orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    height: auto;
+    min-height: 450px;
+    padding: 100px 0 50px; /* Adjusted padding */
+  }
+  
+  .hero-content {
+    padding: 80px 0 40px; /* Adjusted padding */
+  }
+  
+  .floating-element {
+    display: none;
+  }
+}
+
+/* Print styles for better accessibility */
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  
+  header, footer, .hero-bg, .floating-element, .btn {
+    display: none !important;
+  }
+  
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .product-card, .feature-card, .testimonial {
+    page-break-inside: avoid;
+    border: 1px solid #ddd !important;
+  }
+}
+
+/* Add backdrop overlay for mobile menu */
+.menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(7, 11, 23, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 990;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  pointer-events: none;
+}
+
+.menu-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+/* Extra Small Devices */
+@media (max-width: 320px) {
+  /* Create a 2x2 grid for profile images on very small screens */
+  .client-logos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .profile-container {
+    max-width: 100%;
+  }
+  
+  .profile-circle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Adjust hero section for very small screens */
+  .hero {
+    padding-top: 50px; /* Minimal padding for smallest screens */
+  }
+  
+  .hero-content {
+    padding-top: 10px; /* Minimal padding */
+  }
+  
+  .hero-title {
+    font-size: 22px; /* Slightly smaller title */
+    margin-bottom: 10px;
+  }
+  
+  .hero-subtitle {
+    font-size: 13px;
+    margin-bottom: 24px; /* Increased from 14px */
+  }
+  
+  .hero-cta {
+    margin-top: 5px; /* Added small margin-top */
+  }
+  
+  .hero-cta .btn {
+    padding: 14px 28px; /* Increased from 12px 24px */
+    font-size: 14px;
+    letter-spacing: 1.2px; /* Consistent letter spacing */
+  }
+  
+  .navbar {
+    padding-left: 10px; /* Further reduce left padding for smallest screens */
+  }
+  
+  .menu-toggle {
+    margin-right: 10px; /* Further reduce right margin for smallest screens */
+  }
+  
+  /* Reset the hero glow for the smallest screens */
+  .hero::before {
+    background: 
+      radial-gradient(circle at 50% 15%, rgba(48, 83, 175, 0.2) 0%, transparent 70%);
+  }
+  
+  /* Reset glow for smallest screens */
+  .hero-content::before {
+    width: 180px;
+    height: 100px;
+    top: 15px;
+    background: radial-gradient(ellipse at center, rgba(48, 83, 175, 0.15) 0%, transparent 90%);
+  }
+}
+
+@media (max-width: 575.98px) {
+    .hero {
+        background-image: none !important;
+        background: radial-gradient(circle at 15% 25%, rgba(41, 71, 157, 0.22) 0%, transparent 48%),
+                    radial-gradient(circle at 85% 15%, rgba(50, 80, 160, 0.2) 0%, transparent 52%),
+                    linear-gradient(145deg, 
+                        #050A14 0%, 
+                        #071224 35%, 
+                        #0A1838 70%, 
+                        #0D1C42 100%) !important;
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 230px; /* Reduced padding for tighter spacing */
+        padding-top: 80px; /* Adjusted to reduce space between navbar and content */
+    }
+    
+    /* Add subtle lighting effect */
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 50% 10%, rgba(48, 83, 175, 0.22) 0%, transparent 72%),
+            radial-gradient(circle at 80% 30%, rgba(34, 65, 150, 0.18) 0%, transparent 65%);
+        z-index: 1;
+        pointer-events: none;
+    }
+    
+    /* Use the after pseudo-element for the hero image, but exclude documentation page */
+    .hero::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -40px; /* Moved higher (was -70px) while still overflowing */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 340px;
+        height: 380px;
+        background-image: url('/images/hero-image.png');
+        background-size: contain;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        z-index: 2;
+        animation: slideUpHero 1.2s ease-out 0.3s forwards;
+        opacity: 0;
+        filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.35));
+    }
+    
+    /* Hide the hero image on documentation page */
+    body.documentation-page .hero::after {
+        display: none !important;
+    }
+    
+    /* Slide up animation for hero image */
+    @keyframes slideUpHero {
+        0% {
+            transform: translate(-50%, 60px);
+            opacity: 0;
+        }
+        100% {
+            transform: translate(-50%, 0);
+            opacity: 1;
+        }
+    }
+    
+    .hero video {
+        display: none !important; /* Hide the video on mobile with !important */
+    }
+    
+    /* Ensure hero content is above the new overlay */
+    .hero-content {
+        position: relative;
+        z-index: 3;
+        margin-bottom: 0; /* Remove margin for tighter spacing */
+        padding-top: 20px; /* Reduce top padding to move content higher */
+        margin-top: 0; /* Remove margin-top */
+    }
+    
+    /* Override any other breakpoints that might set a background image */
+    .hero-overlay {
+        background: none !important; /* Remove default overlay gradient with !important */
+        z-index: 2;
+    }
+}
+
+/* Override any conflicting media queries from style.css */
+@media screen and (max-width: 480px) {
+    .hero {
+        /* This will override the rule in style.css that sets the background to the image */
+        background: radial-gradient(circle at 15% 25%, rgba(41, 71, 157, 0.22) 0%, transparent 48%),
+                    radial-gradient(circle at 85% 15%, rgba(50, 80, 160, 0.2) 0%, transparent 52%),
+                    linear-gradient(145deg, 
+                        #050A14 0%, 
+                        #071224 35%, 
+                        #0A1838 70%, 
+                        #0D1C42 100%) !important;
+        padding-bottom: 200px; /* Reduced padding for tighter spacing */
+        padding-top: 70px; /* Adjusted to reduce space at the top */
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    /* Ensure video is hidden */
+    .hero video,
+    video.hero-bg {
+        display: none !important;
+    }
+    
+    /* Add subtle lighting/glow effects */
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 50% 10%, rgba(48, 83, 175, 0.22) 0%, transparent 72%),
+            radial-gradient(circle at 80% 30%, rgba(34, 65, 150, 0.18) 0%, transparent 65%);
+        z-index: 1;
+        pointer-events: none;
+    }
+    
+    /* Enhance hero content spacing */
+    .hero-content {
+        padding-top: 20px; /* Reduce top padding from 60px to 20px */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 0; /* Remove margin for tighter spacing */
+        margin-top: 0; /* Remove any top margin */
+    }
+    
+    .hero-subtitle {
+        margin-bottom: 30px; /* Increased spacing above button */
+    }
+    
+    .hero-cta {
+        margin-top: 8px; /* Added margin-top for additional spacing */
+    }
+    
+    /* Add a subtle glow behind hero content */
+    .hero-content::before {
+        content: '';
+        position: absolute;
+        top: 20px; /* Adjust to match hero-content padding-top */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 250px;
+        height: 120px;
+        background: radial-gradient(ellipse at center, rgba(48, 83, 175, 0.15) 0%, transparent 85%);
+        filter: blur(15px);
+        z-index: -1;
+        pointer-events: none;
+    }
+    
+    /* Use the after pseudo-element for the hero image */
+    .hero::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -20px; /* Moved higher (was -50px) while still overflowing */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 280px;
+        height: 320px;
+        background-image: url('/images/hero-image.png');
+        background-size: contain;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        z-index: 2;
+        animation: slideUpHero 1.2s ease-out 0.3s forwards;
+        opacity: 0;
+        filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.35));
+    }
+    
+    /* Hide the hero image on documentation page */
+    body.documentation-page .hero::after {
+        display: none !important;
+    }
+} 

@@ -30,6 +30,9 @@
   --premium-silver-dark: #8c98a4;
   --premium-silver-gradient: linear-gradient(135deg, var(--premium-silver-dark) 0%, var(--premium-silver) 50%, var(--premium-silver-light) 100%);
   --premium-silver-gradient-hover: linear-gradient(135deg, var(--premium-silver) 0%, var(--premium-silver-light) 50%, var(--premium-silver-light) 100%);
+  
+  /* Mobile viewport height fix */
+  --vh: 1vh;
 }
 
 * {
@@ -199,21 +202,20 @@ header.scrolled {
 
 /* Update navbar button for premium theme */
 .nav-links a.btn {
-  background: var(--premium-blue-gradient);
-  color: white;
+  background: linear-gradient(135deg, 
+    rgba(210, 220, 235, 0.98) 0%, 
+    rgba(225, 230, 245, 0.99) 50%, 
+    rgba(210, 220, 235, 0.98) 100%);
+  color: var(--dark-bg);
   font-weight: 700;
-  box-shadow: 0 4px 15px rgba(58, 123, 213, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  padding: 12px 24px;
-  border-radius: 12px;
-  font-size: 16px;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.1);
+  font-size: 19.2px;
+  padding: 14.4px 28.8px;
+  border-radius: 14.4px;
   display: inline-block;
-  text-decoration: none;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
 }
 
 .nav-links a.btn::before {
@@ -375,6 +377,11 @@ video.hero-bg {
   filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.25));
 }
 
+/* Hide floating element on documentation page for all screen sizes */
+body.documentation-page .floating-element {
+  display: none !important;
+}
+
 /* Smoother floating effect with continuous rotation */
 @keyframes floatMove {
   0% {
@@ -455,8 +462,8 @@ video.hero-bg {
 }
 
 .hero-cta {
-  display: flex;
-  gap: 16px;
+  display: block;
+  text-align: left;
   margin-bottom: 30px;
 }
 
@@ -496,6 +503,7 @@ video.hero-bg {
   font-size: 19.2px;
   padding: 14.4px 28.8px;
   border-radius: 14.4px;
+  display: inline-block;
 }
 
 .hero-cta .btn:hover {
@@ -559,8 +567,8 @@ video.hero-bg {
 }
 
 .products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 30px;
   margin-top: 50px;
 }
@@ -729,10 +737,10 @@ video.hero-bg {
 
 .client-logos {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 15px;
   max-width: 1000px;
   margin: 40px auto 0;
 }
@@ -769,8 +777,8 @@ video.hero-bg {
 }
 
 .profile-circle {
-  width: 90px;
-  height: 90px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   background: var(--tertiary-bg);
   border: 2px solid var(--border-color);
@@ -993,9 +1001,12 @@ video.hero-bg {
 
 .steps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   margin-top: 50px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .step {
@@ -1559,9 +1570,9 @@ footer {
   
   /* Adjust floating element size for tablets */
   .floating-element {
-    max-width: 40%;
-    max-height: 40%;
-    right: 10%;
+    max-width: 40%; /* Increased to original size */
+    max-height: 40%; /* Increased to original size */
+    right: 10%; /* Original position */
   }
 }
 
@@ -1634,7 +1645,8 @@ footer {
   
   /* Center hero CTA on mobile */
   .hero-cta {
-    justify-content: center;
+    justify-content: flex-start;
+    text-align: left;
   }
   
   /* Adjust section padding */
@@ -1679,12 +1691,12 @@ footer {
     display: none;
   }
   
-  /* Enhanced gradient background for mobile when video is hidden */
+  /* Use phone-bg.png as background for hero section on mobile */
   .hero {
-    background: linear-gradient(135deg, 
-      var(--bg-color) 0%, 
-      var(--secondary-bg) 50%, 
-      var(--tertiary-bg) 100%);
+    background: url('/images/phone-bg.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
   }
   
   /* Further reduce padding */
@@ -1702,7 +1714,7 @@ footer {
     display: inline-block;
     width: auto;
     max-width: 80%;
-    margin: 0 auto;
+    margin: 0;
   }
   
   /* Keep other buttons full width */
@@ -1719,6 +1731,20 @@ footer {
   
   .section-subtitle, .products-subtitle {
     font-size: 1rem;
+  }
+  
+  /* Make profile containers fit in one row on mobile */
+  .profile-circle {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .client-logos {
+    gap: 10px;
+  }
+  
+  .profile-name {
+    font-size: 0.8rem;
   }
 }
 
@@ -2501,9 +2527,456 @@ button:focus-visible,
     font-style: italic;
 }
 
+/* Hide video instructions on mobile and tablet */
+@media (max-width: 992px) {
+    .video-instructions {
+        display: none;
+    }
+}
+
 @media (max-width: 768px) {
     .video-container {
         max-width: 100%;
         margin: 1.5rem auto;
     }
+}
+
+/* Responsive enhancements */
+.no-scroll {
+  overflow: hidden !important;
+  height: 100% !important;
+  position: fixed;
+  width: 100%;
+}
+
+/* Mobile-specific adjustments */
+.mobile-device .hero {
+  height: 100vh; /* Fallback */
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+/* Fix for mobile menu */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .nav-links {
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Enhance tap targets for better mobile usability */
+  .nav-links a,
+  .footer-links a,
+  .social-links a,
+  .btn {
+    padding: 12px 16px;
+  }
+  
+  /* Center align hero content on mobile */
+  .hero-content {
+    text-align: center;
+    align-items: center;
+  }
+}
+
+/* Fix for very small mobile devices */
+@media screen and (max-width: 320px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  .btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}
+
+/* Add the following styles near the end of the file, just before or after the responsive section */
+
+/* Enhanced Mobile Margins */
+.no-scroll {
+  overflow: hidden !important;
+  height: 100% !important;
+  position: fixed;
+  width: 100%;
+  touch-action: none;
+}
+
+/* Mobile-specific adjustments */
+.mobile-device .hero {
+  height: 100vh; /* Fallback */
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+    margin-right: 10px;
+  }
+  
+  .nav-links {
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Enhanced section spacing on mobile */
+  .section-title, 
+  .products-title,
+  .platform-overview-title,
+  .how-it-works-title,
+  .cta h2 {
+    margin-bottom: 25px;
+  }
+  
+  .section-subtitle,
+  .products-subtitle,
+  .platform-overview-subtitle {
+    margin-bottom: 35px;
+  }
+  
+  /* Enhanced spacing for cards */
+  .product-card, 
+  .feature-card,
+  .step,
+  .testimonial {
+    margin-bottom: 25px;
+  }
+  
+  /* Improved footer spacing */
+  .footer-col {
+    margin-bottom: 25px;
+  }
+  
+  .footer-col h4 {
+    margin-bottom: 20px;
+  }
+  
+  .footer-col ul li {
+    margin-bottom: 12px;
+  }
+  
+  /* Enhanced button padding on mobile */
+  .btn {
+    padding: 14px 24px;
+    margin: 5px 0;
+  }
+  
+  /* Hero content spacing */
+  .hero-content {
+    padding: 0 15px;
+    text-align: center;
+    align-items: center;
+  }
+  
+  /* Center text on mobile */
+  .testimonial-author,
+  .product-description,
+  .feature-card p,
+  .step p {
+    text-align: center;
+  }
+}
+
+/* Fix for very small mobile devices */
+@media screen and (max-width: 320px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  /* More compact buttons on very small devices */
+  .btn {
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+  
+  /* Reduced card padding */
+  .product-card, 
+  .feature-card,
+  .step,
+  .testimonial {
+    padding: 20px;
+  }
+  
+  /* Further reduce profile container sizes for very small screens */
+  .profile-circle {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .client-logos {
+    gap: 8px;
+  }
+}
+
+/* Add these styles to enhance the mobile menu with blue effects */
+
+/* Menu toggle button enhancement */
+.menu-toggle {
+  position: relative;
+  z-index: 1000;
+}
+
+.menu-toggle span {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.menu-toggle.active span {
+  background: #ffffff;
+}
+
+/* Mobile menu enhancement */
+@media (max-width: 768px) {
+  /* Blue glow effect on menu items */
+  .nav-links a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(100, 160, 255, 0.5);
+  }
+  
+  /* Enhanced button effect */
+  .nav-links a.btn {
+    position: relative;
+  }
+  
+  .nav-links a.btn::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle, rgba(58, 123, 213, 0.3) 0%, rgba(10, 16, 32, 0) 70%);
+    border-radius: 30px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .nav-links a.btn:hover::after {
+    opacity: 1;
+  }
+  
+  /* Enhanced menu container background */
+  .nav-links::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, 
+      rgba(58, 123, 213, 0.3) 0%, 
+      rgba(10, 16, 32, 0) 70%);
+    pointer-events: none;
+  }
+  
+  /* Active link highlight */
+  .nav-links a.active {
+    color: #ffffff;
+    font-weight: 600;
+    border-left: 3px solid rgba(58, 123, 213, 0.8);
+    padding-left: 15px;
+    margin-left: -15px;
+  }
+}
+
+/* Add enhanced backdrop styles */
+.menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 16, 32, 0.5); 
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 990;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease, backdrop-filter 0.4s ease;
+  pointer-events: none;
+}
+
+.menu-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Add subtle animation for backdrop */
+@keyframes backdropPulse {
+  0% {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  50% {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  100% {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+.menu-backdrop.active {
+  animation: backdropPulse 8s ease-in-out infinite;
+}
+
+/* Add subtle blue gradient to backdrop */
+.menu-backdrop::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, 
+    rgba(36, 107, 253, 0.15), 
+    transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-backdrop.active::before {
+  opacity: 1;
+}
+
+/* Mobile Menu Styles - Enhanced */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-links-container {
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-links-container {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 100vh;
+        background: rgba(26, 28, 32, 0.97);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: -5px 0px 25px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        transform: translateX(100%);
+        overflow-y: auto;
+        padding: 100px 0 30px;
+    }
+
+    .nav-links-container.active {
+        transform: translateX(0);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 30px;
+        height: auto;
+    }
+
+    .nav-links li {
+        width: 100%;
+        margin: 0;
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    
+    .nav-links-container.active .nav-links li {
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        transition-delay: calc(0.1s * var(--item-index));
+    }
+
+    .nav-links a {
+        font-size: 18px;
+        padding: 15px 0;
+        display: block;
+        color: #ffffff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+    }
+
+    .nav-links a:hover {
+        color: var(--primary-color);
+        transform: translateX(5px);
+    }
+    
+    .nav-links a.active {
+        color: var(--primary-color);
+    }
+
+    .menu-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        z-index: 998;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .menu-backdrop.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+}
+
+/* Remove underline for mobile/tablet views */
+@media (max-width: 768px) {
+  .nav-links a::after {
+    display: none;
+  }
+  
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
+    display: none;
+  }
 }

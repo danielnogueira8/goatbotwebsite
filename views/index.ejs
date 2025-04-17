@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>GOAT Trading Bot - Automated Crypto Trading</title>
     <meta name="description" content="The greatest trading bot for traders on Base chain. Trade faster, win bigger with our automated crypto trading bot.">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -32,21 +33,21 @@
         }
         
         .hero-title {
-            animation: fadeInUp 1s ease 0.3s forwards;
+            animation: fadeInUp 0.7s ease 0.2s forwards;
         }
         
         .hero-subtitle {
-            animation: fadeInUp 1s ease 0.6s forwards;
+            animation: fadeInUp 0.7s ease 0.4s forwards;
         }
         
         .hero-cta {
-            animation: fadeInUp 1s ease 0.9s forwards;
+            animation: fadeInUp 0.7s ease 0.6s forwards;
         }
         
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -126,6 +127,305 @@
         .how-it-works .step.active:hover .step-number {
             transform: scale(1.15) rotate(5deg);
         }
+        
+        /* Products grid layout - horizontal row for desktop */
+        .products-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .product-card {
+            width: 100%;
+            padding: 25px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Desktop view - all cards in one row */
+        @media screen and (min-width: 992px) {
+            .products-grid {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: stretch;
+            }
+            
+            .product-card {
+                flex: 1;
+                max-width: 32%;
+            }
+            
+            /* Make the Join Waitlist button bigger in desktop view */
+            .hero-cta .btn {
+                font-size: 1.25rem;
+                padding: 16px 40px;
+                min-width: 240px;
+                letter-spacing: 0.5px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+            
+            .hero-cta .btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+            
+            /* Bigger waitlist button in CTA section as well */
+            .cta .btn {
+                font-size: 1.25rem;
+                padding: 16px 40px;
+                min-width: 240px;
+                letter-spacing: 0.5px;
+                font-weight: 600;
+            }
+            
+            /* Make profile images bigger in desktop view */
+            .clients .profile-circle {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 15px;
+                transition: transform 0.3s ease;
+            }
+            
+            .clients .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .clients .profile-name {
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+            
+            .clients .profile-container {
+                margin: 0 20px;
+            }
+            
+            .clients .profile-circle:hover {
+                transform: scale(1.08);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            }
+            
+            .clients .client-logos {
+                margin-top: 40px;
+            }
+            
+            /* How it works section - all steps in one row for desktop */
+            .how-it-works .steps {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                gap: 20px;
+                margin-top: 40px;
+            }
+            
+            .how-it-works .step {
+                flex: 1;
+                min-width: 0; /* Allow flex items to shrink below content size */
+                margin: 0;
+                padding: 25px 15px;
+                text-align: center;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            
+            /* Higher specificity hover effect to override existing styles */
+            .how-it-works .steps .step.stagger-item.active:hover {
+                transform: translateY(-8px) !important;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important;
+            }
+            
+            /* Video instructions on a single line with smaller font for desktop */
+            .video-instructions {
+                font-size: 0.85rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 100%;
+                margin: 10px auto;
+                opacity: 0.8;
+            }
+        }
+        
+        /* Premium Mobile Hero Enhancements */
+        @media screen and (max-width: 576px) {
+            .hero-title {
+                position: relative;
+                display: inline-block;
+            }
+            
+            .hero-title::after {
+                content: '';
+                position: absolute;
+                bottom: -8px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 40px;
+                height: 3px;
+                background: linear-gradient(90deg, #3772C2, #1F4899);
+                border-radius: 3px;
+                opacity: 0.85;
+                box-shadow: 0 1px 2px rgba(41, 121, 255, 0.2);
+                display: none;
+            }
+            
+            .hero-cta .btn {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .hero-cta .btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, 
+                    rgba(255, 255, 255, 0) 0%, 
+                    rgba(255, 255, 255, 0.3) 50%, 
+                    rgba(255, 255, 255, 0) 100%);
+                transition: left 0.6s ease;
+            }
+            
+            .hero-cta .btn:hover::before {
+                left: 100%;
+            }
+            
+            .hero-cta .btn:active {
+                transform: translateY(1px);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            }
+            
+            /* Blue sparks animation for mobile */
+            .hero {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .spark {
+                position: absolute;
+                width: 2px;
+                height: 10px;
+                background: #3772C2;
+                border-radius: 0;
+                transform-origin: center;
+                box-shadow: 0 0 8px 1px rgba(55, 114, 194, 0.8),
+                            0 0 16px 2px rgba(41, 121, 255, 0.6);
+                pointer-events: none;
+                opacity: 0;
+                z-index: 5;
+                animation: lightningFlash 0.8s ease-out forwards;
+            }
+            
+            /* Base lightning styles - will be customized via JavaScript */
+            .spark-zigzag::before, .spark-zigzag::after {
+                content: '';
+                position: absolute;
+                background: inherit;
+                box-shadow: inherit;
+            }
+            
+            .spark-zigzag::before {
+                width: 100%;
+                height: 50%;
+                top: -25%;
+                left: 0;
+                transform: rotate(30deg) translateY(-20%);
+            }
+            
+            .spark-zigzag::after {
+                width: 100%;
+                height: 50%;
+                bottom: -25%;
+                left: 0;
+                transform: rotate(-30deg) translateY(20%);
+            }
+            
+            .spark-forked::before, .spark-forked::after {
+                content: '';
+                position: absolute;
+                background: inherit;
+                box-shadow: inherit;
+                width: 70%;
+                height: 70%;
+                top: 0;
+            }
+            
+            .spark-forked::before {
+                transform: rotate(25deg) translateY(-60%);
+                left: -10%;
+            }
+            
+            .spark-forked::after {
+                transform: rotate(-25deg) translateY(-60%);
+                right: -10%;
+            }
+            
+            .spark-star::before, .spark-star::after {
+                content: '';
+                position: absolute;
+                background: inherit;
+                box-shadow: inherit;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+            }
+            
+            .spark-star::before {
+                transform: rotate(45deg);
+            }
+            
+            .spark-star::after {
+                transform: rotate(90deg);
+            }
+            
+            @keyframes lightningFlash {
+                0% {
+                    opacity: 0;
+                    transform: scaleY(0.5) scaleX(0.1);
+                }
+                5% {
+                    opacity: 0.3;
+                }
+                10% {
+                    opacity: 0.7;
+                    transform: scaleY(1.1) scaleX(1);
+                }
+                20% {
+                    opacity: 0.2;
+                }
+                30% {
+                    opacity: 0.5;
+                }
+                100% {
+                    opacity: 0;
+                    transform: scaleY(0.7) scaleX(0.3);
+                }
+            }
+            
+            @keyframes pulseLightning {
+                0% {
+                    opacity: 0;
+                    transform: scale(0.1);
+                }
+                40% {
+                    opacity: 0.9;
+                    transform: scale(1.2);
+                }
+                70% {
+                    opacity: 0.5;
+                    transform: scale(0.9);
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(1.5);
+                }
+            }
+        }
     </style>
 </head>
 <body>
@@ -138,7 +438,7 @@
                     <img src="/images/logo.png" alt="GOAT Trading Bot Logo" class="logo-img">
                 </a>
                 <ul class="nav-links">
-                    <li><a href="#tradingbot" class="nav-link">Trading Bot</a></li>
+                    <li><a href="#tradingbot" class="nav-link">Why GOAT</a></li>
                     <li><a href="#features" class="nav-link">Features</a></li>
                     <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
                     <li><a href="/documentation" class="nav-link">Documentation</a></li>
@@ -164,10 +464,11 @@
                 <h1 class="hero-title">Goat Trading Bot</h1>
                 <p class="hero-subtitle">GOATed by Design, Degen by Nature.</p>
                 <div class="hero-cta">
-                    <a href="https://t.me/goattradingbotwaitlist" class="btn" target="_blank" rel="noopener noreferrer">Join Waitlist</a>
+                    <a href="https://t.me/goattradingbotwaitlist" class="btn" target="_blank" rel="noopener noreferrer">JOIN WAITLIST</a>
                 </div>
             </div>
         </div>
+        <!-- The sparks will be inserted here by JavaScript -->
     </section>
 
     <!-- Products Section inspired by HAQQ -->
@@ -466,7 +767,7 @@
                 <div class="footer-col fade-in">
                     <h4>Products</h4>
                     <ul>
-                        <li><a href="#">Trading Bot</a></li>
+                        <li><a href="#">Why GOAT</a></li>
                     </ul>
                 </div>
                 
@@ -607,6 +908,138 @@
                 }
                 observer.observe(element);
             });
+            
+            // Blue sparks animation for mobile
+            function createSparksAnimation() {
+                // Only run on mobile
+                if (window.innerWidth > 576) return;
+                
+                const heroSection = document.querySelector('.hero');
+                if (!heroSection) return;
+                
+                // Different types of lightning sparks
+                const sparkTypes = [
+                    'spark-zigzag',  // Zigzag lightning
+                    'spark-forked',  // Fork-shaped lightning
+                    'spark-star',    // Star-shaped spark
+                    ''               // Default (straight bolt)
+                ];
+                
+                // Create a lightning spark at random position
+                function createSpark() {
+                    const spark = document.createElement('div');
+                    spark.className = 'spark';
+                    
+                    // Apply a random spark type
+                    const sparkType = sparkTypes[Math.floor(Math.random() * sparkTypes.length)];
+                    if (sparkType) {
+                        spark.classList.add(sparkType);
+                    }
+                    
+                    // Random size based on spark type
+                    let height, width;
+                    
+                    if (sparkType === 'spark-star') {
+                        // Star shapes are more symmetrical
+                        const size = 2 + Math.random() * 4; // Reduced size for less aggressive look
+                        height = size;
+                        width = size;
+                    } else {
+                        // Lightning bolts are longer
+                        height = 6 + Math.random() * 12; // Reduced max height from 20 to 12
+                        width = 1 + Math.random() * 1.5; // Slightly thinner
+                    }
+                    
+                    spark.style.height = `${height}px`;
+                    spark.style.width = `${width}px`;
+                    
+                    // Random position with more distribution
+                    // Avoid placing sparks too close to edges
+                    const margin = 30;
+                    const posX = margin + Math.random() * (heroSection.offsetWidth - 2 * margin);
+                    const posY = margin + Math.random() * (heroSection.offsetHeight - 2 * margin);
+                    spark.style.left = `${posX}px`;
+                    spark.style.top = `${posY}px`;
+                    
+                    // Random angle for the lightning with more variation
+                    const angle = Math.random() * 360;
+                    
+                    // Apply transformations - scale, rotation, and skew for more organic feel
+                    // Using smaller scale values for less aggressiveness
+                    const scaleX = 0.7 + Math.random() * 0.4;
+                    const scaleY = 0.7 + Math.random() * 0.4;
+                    const skewX = Math.random() * 6 - 3; // Reduced skew angle range
+                    
+                    spark.style.transform = `rotate(${angle}deg) scale(${scaleX}, ${scaleY}) skew(${skewX}deg)`;
+                    
+                    // Random color variation (blue-white hues for lightning)
+                    // Using slightly less saturated colors for subtlety
+                    const blueHue = 210 + Math.random() * 30; // Range from 210-240 (blue spectrum)
+                    const saturation = 60 + Math.random() * 30; // 60-90% (less saturated)
+                    const lightness = 55 + Math.random() * 30; // 55-85% (slightly dimmer)
+                    spark.style.background = `hsl(${blueHue}, ${saturation}%, ${lightness}%)`;
+                    
+                    // Customize glow based on spark type, with reduced intensity
+                    const glowIntensity = 1 + Math.random() * 3; // Reduced glow intensity
+                    const glowSize = 4 + Math.random() * 10;     // Reduced glow size
+                    
+                    spark.style.boxShadow = `0 0 ${glowSize}px ${glowIntensity}px hsla(${blueHue}, ${saturation}%, ${lightness}%, 0.6)`; // Reduced opacity from 0.8 to 0.6
+                    
+                    // Standard animation duration for all types
+                    const animDuration = 800;
+                    
+                    // Append the spark to the hero section
+                    heroSection.appendChild(spark);
+                    
+                    // Remove the spark after animation completes
+                    setTimeout(() => {
+                        if (spark && spark.parentNode) {
+                            spark.parentNode.removeChild(spark);
+                        }
+                    }, animDuration);
+                }
+                
+                // Create sparks at random intervals
+                function sparkLoop() {
+                    // Create sparks in clusters or singles with more variation
+                    const pattern = Math.random();
+                    
+                    if (pattern < 0.5) { // Reduced from 0.7 to 0.5 for fewer sparks
+                        // 50% chance: create 1-2 sparks (reduced from 1-3)
+                        const sparkCount = Math.floor(Math.random() * 2) + 1;
+                        
+                        for (let i = 0; i < sparkCount; i++) {
+                            setTimeout(createSpark, Math.random() * 100);
+                        }
+                    } else if (pattern < 0.7) { // Reduced from 0.9 to 0.7 for fewer large bursts
+                        // 20% chance: create a small burst of 2-4 sparks (reduced from 4-7)
+                        const sparkCount = 2 + Math.floor(Math.random() * 3);
+                        
+                        // Create sparks in a more concentrated area
+                        for (let i = 0; i < sparkCount; i++) {
+                            setTimeout(createSpark, Math.random() * 150);
+                        }
+                    } else {
+                        // 30% chance: brief pause with no sparks (increased from 10%)
+                    }
+                    
+                    // Schedule next set of sparks with longer delays
+                    const nextDelay = pattern < 0.7 ? 
+                                    400 + Math.random() * 800 : // Longer normal timing (was 200-700)
+                                    1500 + Math.random() * 1000; // Even longer pauses (was 1000-1500)
+                    
+                    setTimeout(sparkLoop, nextDelay);
+                }
+                
+                // Start the spark animation loop
+                sparkLoop();
+            }
+            
+            // Initialize sparks animation
+            createSparksAnimation();
+            
+            // Re-initialize on resize (in case mobile/desktop view changes)
+            window.addEventListener('resize', createSparksAnimation, { passive: true });
         });
     </script>
 </body>

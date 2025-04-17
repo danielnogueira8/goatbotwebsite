@@ -4,11 +4,17 @@ document.addEventListener('DOMContentLoaded', function() {
     progressBar.className = 'progress-bar';
     document.body.appendChild(progressBar);
 
+    // Create menu backdrop overlay for blur effect
+    const menuBackdrop = document.createElement('div');
+    menuBackdrop.className = 'menu-backdrop';
+    document.body.appendChild(menuBackdrop);
+
     // Header scroll effect
     const header = document.querySelector('header');
     const scrollThreshold = 200;
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinksContainer = document.querySelector('.nav-links');
+    const body = document.querySelector('body');
 
     // Store section elements for scroll spy
     const sections = {};
@@ -39,6 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+
+    // Detect mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    // Add mobile class to body if on mobile device
+    if (isMobile) {
+        body.classList.add('mobile-device');
+    }
 
     function handleScroll() {
         // Update header class
@@ -128,6 +142,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (menuToggle && menuToggle.classList.contains('active')) {
                         menuToggle.classList.remove('active');
                         navLinksContainer.classList.remove('active');
+                        // Remove no-scroll class from body
+                        body.classList.remove('no-scroll');
+                        // Remove the backdrop
+                        menuBackdrop.classList.remove('active');
+                        
+                        // Reset the menu toggle icon
+                        const spans = menuToggle.querySelectorAll('span');
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
                     }
 
                     const targetId = this.getAttribute('href');
@@ -159,39 +183,43 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial check for page load
     handleScroll();
 
-    // Handle mobile menu toggle
-    if (menuToggle) {
-        const spans = menuToggle.querySelectorAll('span');
-        
-        menuToggle.addEventListener('click', function() {
+    // Mobile Menu Toggle
+    if (menuToggle && navLinksContainer) {
+        // Set item indices for staggered animation
+        const navItems = document.querySelectorAll('.nav-links li');
+        navItems.forEach((item, index) => {
+            item.style.setProperty('--item-index', index);
+        });
+
+        // Toggle menu on click
+        menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             navLinksContainer.classList.toggle('active');
-            
-            if (this.classList.contains('active')) {
-                spans[0].style.transform = 'translateY(9px) rotate(45deg)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'translateY(-9px) rotate(-45deg)';
-            } else {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
+            if (menuBackdrop) menuBackdrop.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking on the backdrop
+        if (menuBackdrop) {
+            menuBackdrop.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinksContainer.classList.remove('active');
+                menuBackdrop.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        }
+
+        // Close menu when clicking on menu links
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinksContainer.classList.remove('active');
+                if (menuBackdrop) menuBackdrop.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
         });
     }
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-        if (navLinksContainer && navLinksContainer.classList.contains('active') && !event.target.closest('.navbar')) {
-            navLinksContainer.classList.remove('active');
-            if (menuToggle) {
-                menuToggle.classList.remove('active');
-                const spans = menuToggle.querySelectorAll('span');
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
-        }
-    });
 
     // Handle FAQ accordion
     const accordionItems = document.querySelectorAll('.accordion-item');
@@ -218,6 +246,63 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Handle animation of elements when scrolled into view
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    const slideInLeftElements = document.querySelectorAll('.slide-in-left');
+    const slideInRightElements = document.querySelectorAll('.slide-in-right');
+    const bounceInElements = document.querySelectorAll('.bounce-in');
+    const staggerItems = document.querySelectorAll('.stagger-item');
+    
+    // Improved intersection observer with delay options
+    function createObserver(elements, classToAdd, threshold = 0.1, delay = 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add timeout for staggered elements
+                    setTimeout(() => {
+                        entry.target.classList.add(classToAdd);
+                    }, delay * index);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: threshold, rootMargin: '0px 0px -100px 0px' });
+        
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+    }
+    
+    // Apply observers with appropriate configurations for each animation type
+    // Only apply the observers if the browser supports IntersectionObserver
+    if ('IntersectionObserver' in window) {
+        createObserver(fadeInElements, 'active', 0.1);
+        createObserver(slideInLeftElements, 'active', 0.1);
+        createObserver(slideInRightElements, 'active', 0.1);
+        createObserver(bounceInElements, 'active', 0.1);
+        createObserver(staggerItems, 'active', 0.1, 100); // 100ms delay between items
+    } else {
+        // Fallback for browsers that don't support IntersectionObserver
+        fadeInElements.forEach(el => el.classList.add('active'));
+        slideInLeftElements.forEach(el => el.classList.add('active'));
+        slideInRightElements.forEach(el => el.classList.add('active'));
+        bounceInElements.forEach(el => el.classList.add('active'));
+        staggerItems.forEach(el => el.classList.add('active'));
+    }
+
+    // Add viewport height fix for mobile browsers
+    function setVhProperty() {
+        // First we get the viewport height
+        let vh = window.innerHeight * 0.01;
+        // Then we set the value in the --vh custom property
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    // Set the initial value
+    setVhProperty();
+
+    // Update the custom property on window resize
+    window.addEventListener('resize', setVhProperty);
 
     // Enhanced hover effects for cards with more subtle animations
     const productCards = document.querySelectorAll('.product-card');
@@ -427,4 +512,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 500);
         }, 5000);
     }
+
+    // Handle mobile menu navigation for external links
+    const externalNavLinks = document.querySelectorAll('.nav-links a:not([href^="#"])');
+    externalNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // If menu is open, close it and remove backdrop
+            if (menuToggle && menuToggle.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navLinksContainer.classList.remove('active');
+                menuBackdrop.classList.remove('active');
+                body.classList.remove('no-scroll');
+            }
+        });
+    });
 }); 
