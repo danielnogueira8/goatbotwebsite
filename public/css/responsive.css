@@ -5,6 +5,11 @@
   .container {
     max-width: 960px;
   }
+  
+  /* Ensure navbar text visibility */
+  .nav-links a {
+    color: #ffffff !important;
+  }
 }
 
 /* Fix for mobile view black bar on right side */
@@ -14,8 +19,39 @@ body {
   position: relative;
 }
 
-/* Large Tablets */
-@media (max-width: 992px) {
+/* Large Devices (Between 993px and 1200px) */
+@media (max-width: 1200px) and (min-width: 993px) {
+  .container {
+    max-width: 960px;
+    padding: 0 25px;
+  }
+  
+  /* Navigation adjustments */
+  .nav-links {
+    gap: 10px;
+  }
+  
+  .nav-links li {
+    margin-left: 8px;
+  }
+  
+  .nav-links a {
+    font-size: 15px;
+    color: #fff !important;
+  }
+  
+  .nav-links a.btn {
+    font-size: 15px;
+    padding: 10px 18px;
+    color: #fff !important;
+  }
+}
+
+/* Medium Devices (Between 913px and 992px) */
+@media (max-width: 992px) and (min-width: 913px) {
+  /* We're now handling this range with the mobile menu style above */
+  /* Keeping only non-navbar related styles */
+  
   .container {
     max-width: 720px;
     padding: 0 25px; /* Increased side padding */
@@ -25,26 +61,7 @@ body {
   .logo-img {
     height: 70px;
   }
-  
-  /* Navigation adjustments for one-line navbar */
-  .nav-links {
-    gap: 8px;
-  }
-  
-  .nav-links li {
-    margin-left: 6px;
-  }
-  
-  .nav-links a {
-    font-size: 14px;
-  }
-  
-  .nav-links a.btn {
-    font-size: 14px;
-    padding: 10px 16px;
-    border-radius: 10px;
-  }
-  
+
   /* Section spacing */
   .products, .features, .how-it-works, .platform-overview, 
   .use-cases, .testimonials, .faq, .cta {
@@ -93,6 +110,28 @@ body {
   .testimonial {
     padding: 35px; /* Increased padding */
     margin-bottom: 25px; /* Add space between testimonials */
+  }
+}
+
+/* Specific fix for Surface Pro 7 and similar devices (around 912px width) */
+@media (max-width: 912px) and (min-width: 769px) {
+  /* We're now handling this range with the mobile menu style above */
+  /* Keeping only non-navbar related styles */
+  
+  .container {
+    max-width: 720px;
+    padding: 0 25px;
+  }
+  
+  .logo-img {
+    height: 65px;
+  }
+  
+  /* Extra space between sections */
+  .products, .features, .how-it-works, .platform-overview, 
+  .use-cases, .testimonials, .faq, .cta {
+    padding: 60px 0;
+    margin-bottom: 20px;
   }
 }
 
@@ -606,21 +645,26 @@ body {
   
   /* Footer */
   .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 35px; /* Increased gap */
+    grid-template-columns: repeat(2, 1fr); /* Change to 2 columns */
+    gap: 25px; /* Reduced gap for tighter layout */
     padding: 30px 0; /* Add padding */
   }
   
   .footer-col {
-    margin-bottom: 20px; /* Add space between columns */
+    margin-bottom: 15px; /* Reduced space between columns */
   }
   
   .footer-col h4 {
-    margin-bottom: 20px; /* Increased margin */
+    margin-bottom: 15px; /* Reduced margin */
+    font-size: 1rem; /* Reduced font size */
   }
   
   .footer-col ul li {
-    margin-bottom: 15px; /* More space between list items */
+    margin-bottom: 10px; /* Reduced space between list items */
+  }
+  
+  .footer-col ul li a {
+    font-size: 0.85rem; /* Reduced font size */
   }
   
   /* Platform image */
@@ -798,11 +842,12 @@ body {
   
   .footer-links {
     flex-direction: column; /* Stack links */
-    gap: 15px; /* Space between links */
+    gap: 12px; /* Reduced space between links */
   }
   
   .footer-links a {
-    padding: 10px 0; /* Add padding */
+    padding: 8px 0; /* Reduced padding */
+    font-size: 0.85rem; /* Reduced font size */
   }
   
   /* Adjust client logos for very small screens */
@@ -935,7 +980,9 @@ body {
   
   /* Adjust hero section for very small screens */
   .hero {
-    padding-top: 50px; /* Minimal padding for smallest screens */
+    padding-bottom: 110px; /* Make it even shorter for smallest devices */
+    padding-top: 35px;
+    min-height: auto;
   }
   
   .hero-content {
@@ -983,6 +1030,12 @@ body {
     top: 15px;
     background: radial-gradient(ellipse at center, rgba(48, 83, 175, 0.15) 0%, transparent 90%);
   }
+  
+  .hero::after {
+    bottom: -10px;
+    width: 220px;
+    height: 250px;
+  }
 }
 
 @media (max-width: 575.98px) {
@@ -997,8 +1050,8 @@ body {
                         #0D1C42 100%) !important;
         position: relative;
         overflow: hidden;
-        padding-bottom: 230px; /* Reduced padding for tighter spacing */
-        padding-top: 80px; /* Adjusted to reduce space between navbar and content */
+        padding-bottom: 170px; /* Reduced from 230px for shorter height */
+        padding-top: 60px; /* Reduced from 80px for shorter height */
     }
     
     /* Add subtle lighting effect */
@@ -1021,11 +1074,11 @@ body {
         content: '';
         display: block;
         position: absolute;
-        bottom: -40px; /* Moved higher (was -70px) while still overflowing */
+        bottom: -35px; /* Adjusted for new padding */
         left: 50%;
         transform: translateX(-50%);
-        width: 340px;
-        height: 380px;
+        width: 290px; /* Slightly smaller width */
+        height: 330px; /* Slightly smaller height */
         background-image: url('/images/hero-image.png');
         background-size: contain;
         background-position: bottom center;
@@ -1084,10 +1137,10 @@ body {
                         #071224 35%, 
                         #0A1838 70%, 
                         #0D1C42 100%) !important;
-        padding-bottom: 200px; /* Reduced padding for tighter spacing */
-        padding-top: 70px; /* Adjusted to reduce space at the top */
+        padding-bottom: 150px; /* Reduced from 200px for shorter height */
+        padding-top: 50px; /* Reduced from 70px for shorter height */
         height: auto;
-        min-height: 100vh;
+        min-height: auto; /* Changed from 100vh to auto to prevent full viewport height */
     }
     
     /* Ensure video is hidden */
@@ -1150,11 +1203,11 @@ body {
         content: '';
         display: block;
         position: absolute;
-        bottom: -20px; /* Moved higher (was -50px) while still overflowing */
+        bottom: -15px; /* Adjusted for new padding */
         left: 50%;
         transform: translateX(-50%);
-        width: 280px;
-        height: 320px;
+        width: 240px; /* Reduced width */
+        height: 280px; /* Reduced height */
         background-image: url('/images/hero-image.png');
         background-size: contain;
         background-position: bottom center;
@@ -1169,4 +1222,257 @@ body {
     body.documentation-page .hero::after {
         display: none !important;
     }
+}
+
+/* Fix navbar text visibility for all responsive breakpoints */
+header .nav-links a {
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+header .nav-links a.btn {
+  color: #ffffff !important;
+}
+
+/* Custom fix for problematic dimensions (769px-992px) - Use mobile menu style */
+@media (min-width: 769px) and (max-width: 992px) {
+  /* Show menu toggle button */
+  .menu-toggle {
+    display: flex !important;
+    z-index: 1000;
+    margin-right: 20px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+  }
+  
+  .menu-toggle span {
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+  
+  /* Style navbar to be mobile-like */
+  .nav-links {
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important;
+    flex-direction: column !important;
+    background: linear-gradient(145deg, 
+      rgba(7, 13, 29, 0.92) 0%, 
+      rgba(12, 24, 48, 0.94) 50%,
+      rgba(20, 39, 85, 0.94) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-left: 1px solid rgba(58, 123, 213, 0.15) !important;
+    width: 80% !important;
+    max-width: 320px !important;
+    height: 100vh !important;
+    padding: 100px 30px 30px !important;
+    z-index: 999 !important;
+    transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 15px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  /* Add subtle background elements to menu */
+  .nav-links::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 90% 10%, rgba(58, 123, 213, 0.08) 0%, transparent 60%),
+      radial-gradient(circle at 10% 90%, rgba(58, 123, 213, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .nav-links.active {
+    right: 0 !important;
+  }
+  
+  .nav-links li {
+    margin-left: 0 !important;
+    width: 100% !important;
+    margin-bottom: 5px !important;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition-delay: calc(0.07s * var(--item-index, 0));
+  }
+  
+  .nav-links.active li {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  
+  .nav-links a {
+    display: block !important;
+    padding: 14px 0 !important; 
+    width: 100% !important;
+    position: relative !important;
+    overflow: hidden !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.3px !important;
+    transition: all 0.3s ease-out !important;
+    font-size: 16px !important;
+    color: #ffffff !important;
+  }
+  
+  .nav-links a::before {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      rgba(58, 123, 213, 0.8) 0%, 
+      rgba(94, 129, 209, 0.4) 100%);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+  
+  .nav-links a:hover {
+    color: #fff !important;
+    padding-left: 5px !important;
+  }
+  
+  .nav-links a:hover::before {
+    width: 30px;
+  }
+  
+  /* Active link styling */
+  .nav-links a.active {
+    color: #fff !important;
+    padding-left: 8px !important;
+    font-weight: 600 !important;
+  }
+  
+  .nav-links a.active::before {
+    width: 30px;
+  }
+  
+  .nav-links a.btn {
+    margin-top: 20px !important;
+    text-align: center !important;
+    padding: 14px 25px !important;
+    background: linear-gradient(135deg, 
+      rgba(106, 125, 254, 0.9) 0%,
+      rgba(54, 82, 227, 0.95) 100%) !important;
+    backdrop-filter: blur(5px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
+    transition: all 0.3s ease !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.8px !important;
+  }
+  
+  .nav-links a.btn:hover {
+    transform: translateY(-3px) !important;
+    padding-left: 25px !important;
+    box-shadow: 0 10px 25px rgba(36, 107, 253, 0.35) !important;
+    background: linear-gradient(135deg, 
+      rgba(106, 125, 254, 1) 0%,
+      rgba(54, 82, 227, 1) 100%) !important;
+  }
+  
+  .nav-links a.btn:active {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  /* Make sure menu backdrop works */
+  .menu-backdrop {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(7, 11, 23, 0.6) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    z-index: 990 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.4s ease, visibility 0.4s ease !important;
+    pointer-events: none !important;
+  }
+  
+  .menu-backdrop.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: all !important;
+  }
+} 
+
+/* Footer */
+.footer-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px; /* Reduced gap for tighter layout */
+  padding: 30px 0; /* Add padding */
+}
+
+.footer-col {
+  margin-bottom: 15px; /* Reduced space between columns */
+}
+
+.footer-col h4 {
+  margin-bottom: 15px; /* Reduced margin */
+  font-size: 1rem; /* Reduced font size */
+}
+
+.footer-col ul li {
+  margin-bottom: 10px; /* Reduced space between list items */
+}
+
+.footer-col ul li a {
+  font-size: 0.85rem; /* Reduced font size */
+}
+
+/* Platform image */
+.platform-overview-image {
+  width: 100%;
+  max-width: 600px;
+  margin: 30px auto; /* Center with more space */
+}
+
+/* Footer adjustments */
+.footer-bottom {
+  padding: 20px 0; /* Add padding */
+}
+
+.footer-links {
+  flex-direction: column; /* Stack links */
+  gap: 12px; /* Reduced space between links */
+}
+
+.footer-links a {
+  padding: 8px 0; /* Reduced padding */
+  font-size: 0.85rem; /* Reduced font size */
 } 
